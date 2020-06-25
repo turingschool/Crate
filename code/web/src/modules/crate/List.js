@@ -14,6 +14,10 @@ import { getList as getCratesList } from './api/actions'
 import Loading from '../common/Loading'
 import EmptyMessage from '../common/EmptyMessage'
 import CrateItem from './Item'
+<<<<<<< HEAD
+=======
+import StyleSurvey from '../StyleSurvey/StyleSurvey'
+>>>>>>> aaced8e... Display survey component with initial styling
 
 // Component
 class List extends PureComponent {

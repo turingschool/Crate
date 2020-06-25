@@ -17,6 +17,10 @@ import userRoutes from '../../setup/routes/user'
 import { messageShow, messageHide } from '../common/api/actions'
 import { create } from '../subscription/api/actions'
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> aaced8e... Display survey component with initial styling
 // Component
 class Item extends PureComponent {
 
@@ -29,6 +33,13 @@ class Item extends PureComponent {
   }
 
   onClickSubscribe = (crateId) => {
+<<<<<<< HEAD
+=======
+
+    // this.props.user.isSurveyCompleted === false ? 
+    //   this.props.history.push(userRoutes.survey.path): something different
+
+>>>>>>> aaced8e... Display survey component with initial styling
     this.setState({
       isLoading: true
     })
@@ -42,7 +53,13 @@ class Item extends PureComponent {
         } else {
           this.props.messageShow('Subscribed successfully.')
 
+<<<<<<< HEAD
           this.props.history.push(userRoutes.subscriptions.path)
+=======
+          // this.props.history.push(userRoutes.subscriptions.path)
+          // console.log(userRoutes.subscriptions.path)
+
+>>>>>>> aaced8e... Display survey component with initial styling
         }
       })
       .catch(error => {
@@ -60,6 +77,10 @@ class Item extends PureComponent {
   }
 
   render() {
+<<<<<<< HEAD
+=======
+    const { isSurveyCompleted } = this.props.user
+>>>>>>> aaced8e... Display survey component with initial styling
     const { id, name, description } = this.props.crate
     const { isLoading } = this.state
 
@@ -75,6 +96,7 @@ class Item extends PureComponent {
           <p style={{ color: grey2, marginTop: '1em' }}>{description}</p>
 
           <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
+<<<<<<< HEAD
             <Button
               theme="primary"
               onClick={this.onClickSubscribe.bind(this, id)}
@@ -84,6 +106,24 @@ class Item extends PureComponent {
               <Icon size={1.2} style={{ color: white }}>add</Icon> Subscribe
             </Button>
           </p>
+=======
+            
+            <Link to={isSurveyCompleted ? userRoutes.subscriptions.path : userRoutes.survey.path}>
+
+              <Button
+                theme="primary"
+                onClick={this.onClickSubscribe.bind(this, id)}
+                type="button"
+                disabled={ isLoading }
+              >
+                <Icon size={1.2} style={{ color: white }}>add</Icon> Subscribe
+              </Button>
+            </Link>
+            
+          
+          </p>
+          
+>>>>>>> aaced8e... Display survey component with initial styling
         </div>
       </Card>
     )
