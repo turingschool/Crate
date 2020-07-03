@@ -9,6 +9,7 @@ export const crateList = {
   component: CrateList,
   auth: true,
   role: params.user.roles.admin
+  //role-based authorization in React
 }
 
 export const crateCreate = {

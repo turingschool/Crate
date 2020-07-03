@@ -14,6 +14,7 @@ import EmptyMessage from '../common/EmptyMessage'
 import ProductItem from '../product/Item'
 
 // Component
+//PureComponent helps with optimization
 class Related extends PureComponent {
 
   componentDidMount() {

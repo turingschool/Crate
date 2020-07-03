@@ -8,3 +8,4 @@ export default {
     component: Detail
   }
 }
+//use slug in place of ID in React Router

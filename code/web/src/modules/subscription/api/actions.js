@@ -90,6 +90,7 @@ export function getListByUser(isLoading = true) {
 }
 
 // Get single subscription
+//dispatch sends actions to the reducers, for every section or piece of the store there is a reducer
 export function get(slug, isLoading = true) {
   return dispatch => {
     dispatch({
