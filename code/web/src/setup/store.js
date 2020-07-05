@@ -42,5 +42,6 @@ export const store = createStore(
 
   compose(
     applyMiddleware(thunk),
+
   )
 )

@@ -1,0 +1,45 @@
+// overview: User will be able to navigate to their profile view, inside of their profile view they will see a button that says
+//"edit profile" when the user clicks on this they will be taken to a new page (a form) with components strictly for editing and updating global state
+
+//Components needed:
+// ?? WILL WE NEED A COMPONENT THAT IS JUST FOR DISPLAYING BELOW INFO ??
+//Edit button - button displayed on profile view.
+//user image - <img> tag displayed on profile
+//user description - P tag displayed on profile
+//dates available - P tag displayed on profile
+//product history - P tag displayed on profile
+//shipping and email address - P tag displayed on profile
+//upcoming deliveries - P tag displayed on profile
+
+//create a form component (navigated to by using the edit profile button) that will allow for user to edit
+//description, dates available, shipping and email address, and upload an img.
+
+// edit profile button component:
+// will be a simple button that says edit profile.
+// button will route to edit profile url
+
+// user image component:
+// contains a img tag with a default/current img
+// (cannot be edited until in edit profile url)
+
+// dates available component:
+// P tag showing the users dates available
+// (cannot be edited until in edit profile url)
+
+//product history:
+// P tag showing the users dates available
+// (cannot be edited until in edit profile url)
+// consider an array of objects with key values of item ordered, date ordered, date delivered, kept/or not.
+
+//dates available component:
+// (cannot be edited until in edit profile url)
+//displays dates available set by user
+
+//shipping and email address:
+// (cannot be edited until in edit profile url)
+// P tag displays the users email and shipping address
+
+//upcoming deliveries component:
+// (cannot be edited until in edit profile url)
+// section that holds all upcoming deliveries. Consider storing data
+// as an array of objects, and mapping through data to display to page.

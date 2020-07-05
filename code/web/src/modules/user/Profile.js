@@ -29,7 +29,7 @@ const Profile = (props) => (
         <H3 font="secondary">My profile</H3>
       </GridCell>
     </Grid>
-
+    // Profile information will go here. 
     <Grid>
       <GridCell style={{ padding: '2em', textAlign: 'center' }}>
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
