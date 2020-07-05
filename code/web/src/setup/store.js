@@ -27,7 +27,7 @@ export const rootReducer = (state, action) => {
 
   return appReducer(state, action)
 }
-
+ 
 // Load initial state from server side
 let initialState
 if (typeof window !== 'undefined') {

@@ -23,7 +23,7 @@ export function setUser(token, user) {
   }
 
   return { type: SET_USER, user }
-}
+} 
 
 // Login a user using credentials
 export function login(userCredentials, isLoading = true) {
