@@ -35,7 +35,7 @@ class Login extends Component {
       }
     }
 
-    // Function bindings
+    // Function bindings 
   }
 
   onChange = (event) => {
