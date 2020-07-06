@@ -22,7 +22,18 @@ module.exports = {
         role: params.user.roles.user,
         createdAt: new Date(),
         updatedAt: new Date(),
-        description: 'Hello I am user.'
+        description: 'Hello I am user.',
+        shippingAddress: '123 Sunset Dr. Los Angeles, CA'
+      },
+      {
+        name: 'Dave P',
+        email: 'dave@crate.com',
+        password: bcrypt.hashSync('123456', config.saltRounds),
+        role: params.user.roles.user,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        description: 'Hello I am dave.',
+        shippingAddress: '800 Flytime Blvd. Denver, CO'
       }
     ])
   },
