@@ -79,8 +79,9 @@ export async function getGenders() {
 }
 
 // Update users
-export async function update(parentValue, { name, description, shippingAddress, email }, { auth }) {
-  if (auth.user.email === params.user.email) {
+export async function update( name, description, shippingAddress, email ) {
+// export async function update(parentValue, { name, description, shippingAddress, email }, { auth }) {
+  // if (auth.user.email === params.user.email) {
     return await models.User.update(
       {
         name,
@@ -90,7 +91,10 @@ export async function update(parentValue, { name, description, shippingAddress, 
       },
       { where: { email } }
     )
-  } else {
-    throw new Error('Operation denied.')
-  }
+    // .then(res => res.json())
+    // .then(data => console.log(data))
+    // .catch(err => console.error(err))
+  // } else {
+  //   throw new Error('Operation denied.')
+  // }
 }

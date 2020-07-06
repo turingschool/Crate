@@ -2,7 +2,7 @@
 import { GraphQLString, GraphQLInt } from 'graphql'
 
 // App Imports
-import { UserType } from './types'
+import { UserType, UserType1 } from './types'
 import { create, update, remove } from './resolvers'
 
 // Create
@@ -42,7 +42,7 @@ export const userRemove = {
 
 // Profile update
 export const editProfile = {
-  type: UserType,
+  type: UserType1,
   args: {
     name: {
       name: 'name',
