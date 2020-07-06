@@ -15,6 +15,8 @@ import { grey, grey2 } from '../../ui/common/colors'
 import userRoutes from '../../setup/routes/user'
 import { logout } from './api/actions'
 
+//user profile component - will need to update this file with the survey results
+
 // Component
 const Profile = (props) => (
   <div>

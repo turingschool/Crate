@@ -10,6 +10,8 @@ import * as product from '../modules/product/api/state'
 import * as subscription from '../modules/subscription/api/state'
 import * as crate from '../modules/crate/api/state'
 
+//this is the Redux store which holds state, we will likely need to access this file so we can set the user's survey status/information - we would need to add a file to '../modules/crate/api/state' for this survey state
+
 // App Reducer
 const appReducer = combineReducers({
   common,
