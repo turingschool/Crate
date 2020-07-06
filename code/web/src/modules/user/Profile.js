@@ -50,11 +50,12 @@ const Profile = (props) => (
   </div>
 )
 
-// Component Properties
+// Component Properties.
 Profile.propTypes = {
   user: PropTypes.object.isRequired,
   logout: PropTypes.func.isRequired
 }
+
 
 // Component State
 function profileState(state) {
