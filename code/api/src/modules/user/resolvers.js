@@ -77,3 +77,16 @@ export async function remove(parentValue, { id }) {
 export async function getGenders() {
   return Object.values(params.user.gender)
 }
+
+// Update users
+export async function update(parentValue, { name, email, shippingAddress, description } ) {
+    return await models.User.update(
+      {
+        name,
+        email,
+        shippingAddress,
+        description
+      },
+      { where: { email } }
+    )
+}

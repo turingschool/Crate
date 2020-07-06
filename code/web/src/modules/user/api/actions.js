@@ -117,3 +117,14 @@ export function getGenders() {
     }))
   }
 }
+
+export function updateProfile(userDetails) {
+  console.log(userDetails)
+  return dispatch => {
+      return axios.post(routeApi, mutation({
+        operation: 'editProfile',
+        variables: userDetails,
+        fields: ['name', 'email', 'shippingAddress', 'description']
+      }))
+  }
+}

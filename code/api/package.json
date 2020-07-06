@@ -8,6 +8,8 @@
     "setup:install": "npm install",
     "setup:db": "npm run db:migrate && npm run db:seed",
     "db:migrate": "./node_modules/.bin/sequelize db:migrate",
+    "db:drop": "./node_modules/.bin/sequelize db:drop",
+    "db:create": "./node_modueles/.bin/sequlize db:create",
     "db:seed": "./node_modules/.bin/sequelize db:seed:all",
     "start": "nodemon src/index.js --exec babel-node",
     "start:prod": "npm run build:prod && npm run start:server",
