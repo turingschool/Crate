@@ -77,3 +77,20 @@ export async function remove(parentValue, { id }) {
 export async function getGenders() {
   return Object.values(params.user.gender)
 }
+
+// Update users
+export async function update(parentValue, { name, description, shippingAddress, email }, { auth }) {
+  if (auth.user.email === params.user.email) {
+    return await models.User.update(
+      {
+        name,
+        email,
+        shippingAddress,
+        description
+      },
+      { where: { email } }
+    )
+  } else {
+    throw new Error('Operation denied.')
+  }
+}

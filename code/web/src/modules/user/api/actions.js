@@ -118,7 +118,7 @@ export function getGenders() {
   }
 }
 
-export function updateProfile(userDetails) {
+export function update(userDetails) {
   console.log(userDetails)
   return dispatch => {
       return axios.post(routeApi, mutation({
