@@ -14,6 +14,7 @@ const UserType = new GraphQLObjectType({
     role: { type: GraphQLString },
     description: { type: GraphQLString },
     shippingAddress: { type: GraphQLString },
+    userImage: { type: GraphQLString },
     createdAt: { type: GraphQLString },
     updatedAt: { type: GraphQLString }
   })

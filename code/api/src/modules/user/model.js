@@ -20,6 +20,9 @@ module.exports = function(sequelize, DataTypes) {
     },
     shippingAddress: {
       type: DataTypes.TEXT
+    },
+    userImage: {
+      type: DataTypes.TEXT
     }
   })
 
