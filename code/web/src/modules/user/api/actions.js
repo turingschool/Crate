@@ -117,3 +117,26 @@ export function getGenders() {
     }))
   }
 }
+
+// Update a user information
+export function updateUserInformation(userDetails) {
+  return dispatch => {
+    return axios.post(routeApi, mutation({
+      operation: 'editUser',
+      variables: userDetails,
+      fields: ['id', 'name', 'email', 'shippingAddress', 'description']
+    }))
+    .then(respone => {
+      editProfileSetLocalStorageAndCookie(userDetails)
+      dispatch({
+        type: UPDATE_USER,
+        userDetails
+      })
+    })
+  }
+}
+
+const editProfileSetLocalStorageAndCookie = (user) => {
+  const userObject = {email: user.email, name: user.name, role: 'user', shippingAddress: user.shippingAddress}
+  window.localStorage.setItem('user', JSON.stringify(userObj))
+}
