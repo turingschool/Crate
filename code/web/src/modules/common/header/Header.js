@@ -59,12 +59,12 @@ const Header = (props) => {
                 { props.user.details.role === 'ADMIN' && <MenuItem to={admin.dashboard.path} section="admin">Admin</MenuItem> }
 
                 <MenuItem to={crate.list.path}>Crates</MenuItem>
-                  
+
                 <MenuItem to={user.subscriptions.path}>Subscriptions</MenuItem>
 
                 <MenuItem to={user.profile.path}>Profile</MenuItem>
 
-                <MenuItem to={'/K&KTest'}>Our Cool Test Button</MenuItem>
+                <MenuItem to={user.survey.path}>Style Survey</MenuItem>
 
               </Menu>
               :

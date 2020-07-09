@@ -7,12 +7,5 @@ export default {
     path: '/crates',
     component: List,
     auth: true
-  },
-
-  survey: {
-    path: '/style-preferences',
-    component: List,
-    auth: true
   }
-
 }
