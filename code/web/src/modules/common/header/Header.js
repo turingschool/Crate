@@ -19,8 +19,7 @@ import Menu from './Menu'
 import MenuItem from './MenuItem'
 
 // Component
-
-// Functional component for the header, returning the HTML header element with in-line styling, the Grid components and the Menu components - this file will get updated with a new MenuItem button to access the style survey 
+ 
 const Header = (props) => {
   return (
     <header style={{
