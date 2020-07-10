@@ -7,6 +7,7 @@ import cookie from 'js-cookie'
 import { routeApi } from '../../../setup/routes'
 
 // Actions Types
+export const UPDATE_USER = 'AUTH/UPDATE_USER'
 export const LOGIN_REQUEST = 'AUTH/LOGIN_REQUEST'
 export const LOGIN_RESPONSE = 'AUTH/LOGIN_RESPONSE'
 export const SET_USER = 'AUTH/SET_USER'
