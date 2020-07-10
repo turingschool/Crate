@@ -8,7 +8,7 @@ import { Link, withRouter } from 'react-router-dom'
 // UI Imports
 import { Grid, GridCell } from '../../ui/grid'
 import Button from '../../ui/button'
-import ImageTile from '../../ui/image/Tile'
+// import ImageTile from '../../ui/image/Tile'
 import Input from '../../ui/input/Input'
 import H3 from '../../ui/typography/H3'
 import Icon from '../../ui/icon'
@@ -29,11 +29,11 @@ class EditProfile extends Component {
     super(props)
 
     this.state = {
-      name: this.props.user.name ? this.props.user.name : '',
-      email: '',
-      password: '',
+      name: this.props.user.details.name,
+      email: this.props.user.details.email,
+      password: '' ,
       description: '',
-      shippingAddress: '',
+      shippingAddress: this.props.user.details.shippingAddress,
       availability: {
         daysAvailable: [],
         timesAvailable: []
@@ -47,9 +47,10 @@ class EditProfile extends Component {
   render() {
     return (
       <section>
-        <input type="text">{this.state.name}</input>
-        <input type="text">{this.state.email}</input>
-        <input type="text">{this.state.description}</input>
+        <p>Your Name Is</p>
+        <input type="text" value={this.state.name}></input>
+        <input type="text" value={this.state.email}></input>
+        <input type="text" value={this.state.shippingAddress}></input>
       </section>
     )
   }
