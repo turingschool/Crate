@@ -28,13 +28,27 @@ class Survey extends PureComponent {
 
   constructor(props) {
     super(props)
-    this.state = {
 
+    this.state = {
+      survey: {
+        top: 0,
+        bottom: 0,
+        shoes: 0,
+        accessory: 0
+      }
     }
   }
 
-  render() {
+  surveyClick = (event, location, number) => {
+    let survey = this.state.survey
+    survey[location] = number
+    console.log('survey', survey)
+    this.setState({
+      survey
+    })
+  }
 
+  render() {
     return (
       <div>
         <Grid style={{ backgroundColor: grey }}>
@@ -43,15 +57,21 @@ class Survey extends PureComponent {
           </GridCell>
         </Grid>
 
+          <div>
+            <H4 style={{ textAlign: 'center' }} font="secondary">Choose Your Favorite Top</H4>
+          </div>
         <Grid>
-          <H4 font="secondary">Choose Your Favorite Top:</H4>
           <GridCell style={{ padding: '2em', textAlign: 'center' }}>
             <Card style={{ width: '18em', backgroundColor: white }}>
             <p style={{ padding: '2em 3em 0 3em' }}>
               <img src={'http://placekitten.com/200/300'} style={{ width: '100%' }}/>
               </p>
-              <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
-                <Button theme="primary">Style Choice 1</Button>
+              <p style={{ textAlign: 'center', marginTop: '1em', marginBottom: '1em' }}>
+                <Button
+                    onClick={(event) => this.surveyClick(event, 'top', '1')}  
+                    style={{ marginBottom: '1em' } } 
+                    theme="primary">Style Choice 1
+                  </Button>
               </p>
             </Card>
           </GridCell>
@@ -61,8 +81,11 @@ class Survey extends PureComponent {
             <p style={{ padding: '2em 3em 0 3em' }}>
               <img src={'http://placekitten.com/200/300'} style={{ width: '100%' }}/>
               </p>
-              <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
-                <Button theme="primary">Style Choice 2</Button>
+              <p style={{ textAlign: 'center', marginTop: '1em', marginBottom: '1em' }}>
+                <Button
+                  onClick={(event) => this.surveyClick(event, 'top', '2')}
+                  style={{ marginBottom: '1em' }} 
+                  theme="primary">Style Choice 2</Button>
               </p>
             </Card>
           </GridCell>
@@ -72,20 +95,32 @@ class Survey extends PureComponent {
             <p style={{ padding: '2em 3em 0 3em' }}>
               <img src={'http://placekitten.com/200/300'} style={{ width: '100%' }}/>
               </p>
-              <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
-                <Button theme="primary">Style Choice 3</Button>
+              <p style={{ textAlign: 'center', marginTop: '1em', marginBottom: '1em' }}>
+                <Button 
+                  onClick={(event) => this.surveyClick(event, 'top', '3')}
+                  style={{ marginBottom: '1em' }} 
+                  theme="primary">Style Choice 3
+                </Button>
               </p>
             </Card>
           </GridCell>
+          </Grid>
 
-          <H4 font="secondary">Choose Your Favorite Bottoms:</H4>
+          <div>
+            <H4 style={{ textAlign: 'center' }} font="secondary">Choose Your Favorite Bottoms</H4>
+          </div>
+        <Grid>
           <GridCell style={{ padding: '2em', textAlign: 'center' }}>
             <Card style={{ width: '18em', backgroundColor: white }}>
             <p style={{ padding: '2em 3em 0 3em' }}>
               <img src={'http://placekitten.com/200/300'} style={{ width: '100%' }}/>
               </p>
-              <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
-                <Button theme="primary">Style Choice 1</Button>
+              <p style={{ textAlign: 'center', marginTop: '1em', marginBottom: '1em' }}>
+                <Button 
+                  onClick={(event) => this.surveyClick(event, 'bottom', '1')}
+                  style={{ marginBottom: '1em' }} 
+                  theme="primary">Style Choice 1
+                </Button>
               </p>
             </Card>
           </GridCell>
@@ -95,8 +130,12 @@ class Survey extends PureComponent {
             <p style={{ padding: '2em 3em 0 3em' }}>
               <img src={'http://placekitten.com/200/300'} style={{ width: '100%' }}/>
               </p>
-              <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
-                <Button theme="primary">Style Choice 2</Button>
+              <p style={{ textAlign: 'center', marginTop: '1em', marginBottom: '1em' }}>
+                <Button 
+                  onClick={(event) => this.surveyClick(event, 'bottom', '2')}
+                  style={{ marginBottom: '1em' }} 
+                  theme="primary">Style Choice 2
+                </Button>
               </p>
             </Card>
           </GridCell>
@@ -106,33 +145,97 @@ class Survey extends PureComponent {
             <p style={{ padding: '2em 3em 0 3em' }}>
               <img src={'http://placekitten.com/200/300'} style={{ width: '100%' }}/>
               </p>
-              <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
-                <Button theme="primary">Style Choice 3</Button>
+              <p style={{ textAlign: 'center', marginTop: '1em', marginBottom: '1em' }}>
+                <Button 
+                  onClick={(event) => this.surveyClick(event, 'bottom', '3')}
+                  style={{ marginBottom: '1em' }} 
+                  theme="primary">Style Choice 3
+                </Button>
               </p>
             </Card>
           </GridCell>
+          </Grid>
 
-          <H4 font="secondary">Choose Your Favorite Accessory:</H4>
+          <div>
+          <H4 style={{ textAlign: 'center' }} font="secondary">Choose Your Favorite Shoes</H4>
+          </div>
+          <Grid>
           <GridCell style={{ padding: '2em', textAlign: 'center' }}>
             <Card style={{ width: '18em', backgroundColor: white }}>
             <p style={{ padding: '2em 3em 0 3em' }}>
               <img src={'http://placekitten.com/200/300'} style={{ width: '100%' }}/>
               </p>
-              <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
-                <Button theme="primary">Style Choice 1</Button>
+              <p style={{ textAlign: 'center', marginTop: '1em', marginBottom: '1em' }}>
+                <Button 
+                  onClick={(event) => this.surveyClick(event, 'shoes', '1')}
+                  style={{ marginBottom: '1em' }} 
+                  theme="primary">Style Choice 1
+                </Button>
               </p>
             </Card>
           </GridCell>
-
             <GridCell style={{ padding: '2em', textAlign: 'center' }}>
             <Card style={{ width: '18em', backgroundColor: white }}>
             <p style={{ padding: '2em 3em 0 3em' }}>
               <img src={'http://placekitten.com/200/300'} style={{ width: '100%' }}/>
               </p>
-              <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
-                <Button theme="primary">Style Choice 2</Button>
+              <p style={{ textAlign: 'center', marginTop: '1em', marginBottom: '1em' }}>
+                <Button 
+                  onClick={(event) => this.surveyClick(event, 'shoes', '2')}
+                  style={{ marginBottom: '1em' }} 
+                  theme="primary">Style Choice 2
+                </Button>
               </p>
             </Card>
+          </GridCell>
+          <GridCell style={{ padding: '2em', textAlign: 'center' }}>
+            <Card style={{ width: '18em', backgroundColor: white }}>
+            <p style={{ padding: '2em 3em 0 3em' }}>
+              <img src={'http://placekitten.com/200/300'} style={{ width: '100%' }}/>
+              </p>
+              <p style={{ textAlign: 'center' , marginTop: '1em', marginBottom: '1em' }}>
+                <Button 
+                  onClick={(event) => this.surveyClick(event, 'shoes', '3')}
+                  style={{ marginBottom: '1em' }} 
+                  theme="primary">Style Choice 3
+                </Button>
+              </p>
+            </Card>
+          </GridCell>
+          </Grid>
+
+          <div>
+            <H4 style={{ textAlign: 'center' }} font="secondary">Choose Your Favorite Accessory</H4>
+          </div>
+          <Grid>
+            <GridCell style={{ padding: '2em', textAlign: 'center' }}>
+              <Card style={{ width: '18em', backgroundColor: white }}>
+              <p style={{ padding: '2em 3em 0 3em' }}>
+                <img src={'http://placekitten.com/200/300'} style={{ width: '100%' }}/>
+                </p>
+                <p style={{ textAlign: 'center', marginTop: '1em', marginBottom: '1em' }}>
+                  <Button 
+                    onClick={(event) => this.surveyClick(event, 'accessory', '1')}
+                    style={{ marginBottom: '1em' }} 
+                    theme="primary">Style Choice 1
+                  </Button>
+                </p>
+              </Card>
+            </GridCell>
+
+            <GridCell style={{ padding: '2em', textAlign: 'center' }}>
+              <Card style={{ width: '18em', backgroundColor: white }}>
+              <p style={{ padding: '2em 3em 0 3em' }}>
+                <img src={'http://placekitten.com/200/300'} style={{ width: '100%' }}/>
+                </p>
+                <p style={{ textAlign: 'center', marginTop: '1em', marginBottom: '1em' }}>
+                  <Button 
+                    onClick={(event) => this.surveyClick(event, 'accessory', '2')}
+                    style={{ marginBottom: '1em' }} 
+                    theme="primary">Style Choice 2
+                  </Button>
+                </p>
+              </Card>
           </GridCell>
 
           <GridCell style={{ padding: '2em', textAlign: 'center' }}>
@@ -140,12 +243,15 @@ class Survey extends PureComponent {
             <p style={{ padding: '2em 3em 0 3em' }}>
               <img src={'http://placekitten.com/200/300'} style={{ width: '100%' }}/>
               </p>
-              <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
-                <Button theme="primary">Style Choice 3</Button>
+              <p style={{ textAlign: 'center', marginTop: '1em', marginBottom: '1em' }}>
+                <Button
+                  onClick={(event) => this.surveyClick(event, 'accessory', '3')} 
+                  style={{ marginBottom: '1em' }} 
+                  theme="primary">Style Choice 3
+                </Button>
               </p>
             </Card>
           </GridCell>
-          
       </Grid>
     </div>
     )
