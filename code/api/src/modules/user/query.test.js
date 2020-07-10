@@ -35,7 +35,6 @@ describe ("user queries", () => {
       .get('/')
       .send({ query: '{ user(id: 1) { name } }'})
       .expect(200)
-      console.log(response.body)
     
     expect(response.body.data.user.name).toEqual("The Admin");
     expect(response.body.data.user.name).not.toEqual("The User");
