@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
+//helmet outputs plain HTML tags 
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 

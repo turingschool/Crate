@@ -43,6 +43,7 @@ class List extends PureComponent {
 
             <p style={{ marginTop: '1em', color: grey2 }}>You can choose crate which suits your need. You can also
               subscribe to multiple crates.</p>
+              <p style={{ marginTop: '1em', color: grey2 }}>Click subscribe to take our style survey.</p>
           </GridCell>
         </Grid>
 

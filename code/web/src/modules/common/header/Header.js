@@ -19,6 +19,7 @@ import Menu from './Menu'
 import MenuItem from './MenuItem'
 
 // Component
+ 
 const Header = (props) => {
   return (
     <header style={{
@@ -39,7 +40,7 @@ const Header = (props) => {
           {/* Left menu */}
           <Menu style={{ float: 'left', marginTop: '0.5em', marginLeft: '2em' }}>
             <MenuItem to={home.men.path}>Men</MenuItem>
-
+            {/* These are the routes to direct to the correct pages */}
             <MenuItem to={home.women.path}>Women</MenuItem>
 
             <MenuItem to={home.howItWorks.path}>How It Works</MenuItem>
@@ -61,6 +62,9 @@ const Header = (props) => {
                 <MenuItem to={user.subscriptions.path}>Subscriptions</MenuItem>
 
                 <MenuItem to={user.profile.path}>Profile</MenuItem>
+
+                <MenuItem to={user.survey.path}>Style Survey</MenuItem>
+
               </Menu>
               :
               <Menu>
