@@ -1,5 +1,5 @@
-import request from 'supertest';
 import express from 'express';
+import request from 'supertest';
 import graphqlHTTP from 'express-graphql';
 import schema from '../../setup/schema';
 import assert from 'assert';
