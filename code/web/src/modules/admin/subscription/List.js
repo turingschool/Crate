@@ -17,13 +17,16 @@ import AdminMenu from '../common/Menu'
 // Component
 class List extends PureComponent {
 
-  // Runs on server only for SSR
+  // Runs on server only for SSR(server side rendering)
+  // runs in the background - something to activate the server. 
   static fetchData({ store }) {
     return store.dispatch(getSubscriptionsList('DESC'))
   }
 
   // Runs on client only
+  // 
   componentDidMount() {
+    console.log('web/src/modules/admin/subscriptions/list.js getSubscriptionsList');
     this.props.getSubscriptionsList('DESC')
   }
 

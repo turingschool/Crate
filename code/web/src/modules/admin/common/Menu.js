@@ -11,6 +11,8 @@ import Menu from '../../common/header/Menu'
 import MenuItem from '../../common/header/MenuItem'
 
 // Component
+// Sub header Component for Admin
+// HTML tag of menu is depreciated - suggested to update existing code.  Form? 
 const AdminMenu = () => (
   <Grid style={{ backgroundColor: grey }}>
     <GridCell style={{ padding: '2em', textAlign: 'center' }}>

@@ -9,6 +9,7 @@ import Icon from '../../src/ui/icon/Icon'
 
 // Buttons
 storiesOf('Button', module)
+  console.log('src/storybook/stories/button clicked')
   .add('primary', () => (
     <Button type="button" theme="primary" onClick={action('clicked')}>Button</Button>
   ))
