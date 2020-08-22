@@ -16,6 +16,8 @@ import userRoutes from '../../setup/routes/user'
 import { logout } from './api/actions'
 
 // Component
+// This component renders the users Profile. We need to add an editable user image, bio, email, address. As well
+// as ordered items, sorted items by kept and returned, date of next delivery, and an adjustable delivery date.
 const Profile = (props) => (
   <div>
     {/* SEO */}

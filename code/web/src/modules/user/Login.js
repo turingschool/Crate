@@ -47,6 +47,8 @@ class Login extends Component {
     })
   }
 
+  // This function is done on submit of the log in, it calls the login action from the actions file. This method is using
+  // setTimeout to make it async, this needs to be changed to use that async  
   onSubmit = (event) => {
     event.preventDefault()
 

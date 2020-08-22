@@ -3,6 +3,8 @@ import { isEmpty } from '../../../setup/helpers'
 import { SET_USER, LOGIN_REQUEST, LOGIN_RESPONSE, LOGOUT } from './actions'
 
 // Initial State
+// This is the initial state object, when no user is logged in, this is the state of
+// the user. 
 export const userInitialState = {
   error: null,
   isLoading: false,
@@ -11,6 +13,8 @@ export const userInitialState = {
 }
 
 // State
+// This reducer handles the state of the user, more specifically, setting the user object
+// handling the log in request and response, and finally the log out. 
 export default (state = userInitialState, action) => {
   switch (action.type) {
     case SET_USER:

@@ -2,6 +2,7 @@
 import { compose, combineReducers } from 'redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 // App Imports
 import common from '../modules/common/api/state'
@@ -11,6 +12,7 @@ import * as subscription from '../modules/subscription/api/state'
 import * as crate from '../modules/crate/api/state'
 
 // App Reducer
+// This combines the reducers into a single object. 
 const appReducer = combineReducers({
   common,
   user,
@@ -20,6 +22,7 @@ const appReducer = combineReducers({
 })
 
 // Root Reducer
+// This creates the root reducer to make it available to the entire store.
 export const rootReducer = (state, action) => {
   if (action.type === 'RESET') {
     state = undefined
@@ -36,11 +39,13 @@ if (typeof window !== 'undefined') {
 }
 
 // Store
+// This creates the store for the entire application, applies the middleware, composes
+// the dev tools, and handles the initial state. 
 export const store = createStore(
   rootReducer,
   initialState,
 
-  compose(
+  composeWithDevTools(
     applyMiddleware(thunk),
   )
 )

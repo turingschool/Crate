@@ -15,6 +15,8 @@ export const LOGOUT = 'AUTH/LOGOUT'
 // Actions
 
 // Set a user after login or using localStorage token
+// This action sets the user object within state and local storage. It does this by calling the SET_USER 
+// reducer in state.js
 export function setUser(token, user) {
   if (token) {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -26,6 +28,9 @@ export function setUser(token, user) {
 }
 
 // Login a user using credentials
+// This action is called when onSubmit is called in LogIn.js. It executes the LOGIN_REQUEST
+// reducer and LOGIN_RESPONSE reducer. It also sets the user object to local storage. 
+// It also sets isLoading and errors to state if it needed. This action is also a thunk.
 export function login(userCredentials, isLoading = true) {
   return dispatch => {
     dispatch({
@@ -67,6 +72,8 @@ export function login(userCredentials, isLoading = true) {
 }
 
 // Set user token and info in localStorage and cookie
+// this isolated method sets the user token and object to local storage so they stay
+// logged in after 
 export function loginSetUserLocalStorageAndCookie(token, user) {
   // Update token
   window.localStorage.setItem('token', token)
@@ -77,6 +84,7 @@ export function loginSetUserLocalStorageAndCookie(token, user) {
 }
 
 // Register a user
+// This thunk posts a newly registered user to the API
 export function register(userDetails) {
   return dispatch => {
     return axios.post(routeApi, mutation({
@@ -88,6 +96,8 @@ export function register(userDetails) {
 }
 
 // Log out user and remove token from localStorage
+// This will log out a user and remove it from local storage so the user will not be logged in
+// when they return to the page. It calls the LOGOUT reducer.
 export function logout() {
   return dispatch => {
     logoutUnsetUserLocalStorageAndCookie()
@@ -99,6 +109,7 @@ export function logout() {
 }
 
 // Unset user token and info in localStorage and cookie
+// this method removes the token and user from localstorage on log out.
 export function logoutUnsetUserLocalStorageAndCookie() {
   // Remove token
   window.localStorage.removeItem('token')
@@ -109,6 +120,8 @@ export function logoutUnsetUserLocalStorageAndCookie() {
 }
 
 // Get user gender
+// This method finds the users gender from the api via a post, might need to change this to a get. We need
+// to change this to make it more gender inclusive. 
 export function getGenders() {
   return dispatch => {
     return axios.post(routeApi, query({
