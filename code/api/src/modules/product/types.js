@@ -2,6 +2,7 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean } from 'graphql'
 
 // Product type
+// Add style to this
 const ProductType = new GraphQLObjectType({
   name: 'product',
   description: 'Product Type',
@@ -18,6 +19,8 @@ const ProductType = new GraphQLObjectType({
     isSurvey: { type: GraphQLBoolean},
     createdAt: { type: GraphQLString },
     updatedAt: { type: GraphQLString }
+    // style: { type: GraphQLString }
+    // survey: { type: GraphQLBoolean } ?
   })
 })
 
