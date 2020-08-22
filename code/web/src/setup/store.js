@@ -40,7 +40,7 @@ if (typeof window !== 'undefined') {
 
 // Store
 // This creates the store for the entire application, applies the middleware, composes
-// the dev tools, and handles the initial state. 
+// the dev tools, and handles the initial state.
 export const store = createStore(
   rootReducer,
   initialState,
