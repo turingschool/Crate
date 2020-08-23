@@ -43,6 +43,8 @@ export async function getRelated(parentValue, { productId }) {
 }
 
 // Create product
+  // Add attribute 'returned'
+  	// Add attribute 'returned'
 export async function create(parentValue, { name, slug, description, type, gender, image }, { auth }) {
   if(auth.user && auth.user.role === params.user.roles.admin) {
     return await models.Product.create({

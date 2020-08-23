@@ -1,5 +1,5 @@
 'use strict'
-
+	  // Add new association 'hasMany(models.Product)'
 module.exports = function(sequelize, DataTypes) {
   let Crate = sequelize.define('crates', {
     name: {

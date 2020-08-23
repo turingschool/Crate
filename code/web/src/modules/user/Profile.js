@@ -18,6 +18,13 @@ import { logout } from './api/actions'
 // Component
 // This component renders the users Profile. We need to add an editable user image, bio, email, address. As well
 // as ordered items, sorted items by kept and returned, date of next delivery, and an adjustable delivery date.
+// The Profile component will become a class component. Within its state it will contain:
+  // - Input for name and button
+  // - Input for bio and button
+  // - Input for image and button 
+  // - Input for address and button
+  // - Input for next available date
+
 const Profile = (props) => (
   <div>
     {/* SEO */}
@@ -44,11 +51,13 @@ const Profile = (props) => (
 
         <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button>
       </GridCell>
+      {/*We will render the users products down here*/}
     </Grid>
   </div>
 )
 
 // Component Properties
+// Proptypes will prevent errors from happening.
 Profile.propTypes = {
   user: PropTypes.object.isRequired,
   logout: PropTypes.func.isRequired

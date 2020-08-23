@@ -23,6 +23,8 @@ import { login } from './api/actions'
 import AuthCheck from '../auth/AuthCheck'
 
 // Component
+// This component renders the log in form that will return that initial get request to
+// log in the user
 class Login extends Component {
 
   constructor(props) {

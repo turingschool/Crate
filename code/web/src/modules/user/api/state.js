@@ -13,7 +13,7 @@ export const userInitialState = {
 }
 
 // State
-// This reducer handles the state of the user, more specifically, setting the user object
+// This reducer handles the certain aspects of the state of the user, more specifically, setting the user object
 // handling the log in request and response, and finally the log out. 
 export default (state = userInitialState, action) => {
   switch (action.type) {
