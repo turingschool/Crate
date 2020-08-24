@@ -1,5 +1,4 @@
 module.exports = {
-  // Create user table
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('users', {
       id: {
