@@ -3,6 +3,7 @@ import Login from '../../modules/user/Login'
 import Signup from '../../modules/user/Signup'
 import Profile from '../../modules/user/Profile'
 import Subscriptions from '../../modules/user/Subscriptions'
+import SurveyPage from '../../modules/survey/SurveyPage'
 
 // User routes
 export default {
@@ -26,5 +27,13 @@ export default {
     path: '/user/subscriptions',
     component: Subscriptions,
     auth: true
-  }
+	},
+	
+	survey: {
+    path: '/style-survey',
+    component: SurveyPage,
+    auth: true
+	},
+
+
 }

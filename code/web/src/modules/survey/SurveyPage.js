@@ -17,7 +17,7 @@ import { messageShow, messageHide } from '../common/api/actions'
 import { remove, getListByUser } from '../subscription/api/actions'
 
 // Component
-class Survey extends PureComponent {
+class SurveyPage extends PureComponent {
 
   // constructor(props) {
   //   super(props)
@@ -43,7 +43,7 @@ class Survey extends PureComponent {
 }
 
 // Component Properties
-Item.propTypes = {
+SurveyPage.propTypes = {
   // subscription: PropTypes.object.isRequired,
   // user: PropTypes.object.isRequired,
   // remove: PropTypes.func.isRequired,
@@ -59,4 +59,4 @@ function itemState(state) {
   }
 }
 
-export default Survey
+export default SurveyPage
