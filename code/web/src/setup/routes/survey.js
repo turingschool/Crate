@@ -1,9 +1,9 @@
-import Survey from '../../modules/survey/Survey'
+import Survey from '../../modules/survey/SurveyPage'
 
 export default {
 	survey: {
     path: '/style-survey',
-    component: Survey,
+    component: SurveyPage,
     auth: true
 	}
 }
