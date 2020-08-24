@@ -10,7 +10,6 @@ import RoutePrivate from '../../modules/auth/RoutePrivate'
 
 const App = () => (
   <Layout>
-			{console.log('ROUTES', routes)}
     <Switch>
 			{/* this is where the route objects with file path & components are read */}
       {Object.values(routes).map((route, index) => (
