@@ -5,7 +5,6 @@ import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 const UserType = new GraphQLObjectType({
   name: 'user',
   description: 'User type',
-// Will need to add style results field.
   fields: () => ({
     id: { type: GraphQLInt },
     name: { type: GraphQLString },
@@ -28,8 +27,6 @@ const UserLoginType = new GraphQLObjectType({
   })
 })
 
-// User Gender type
-// May need to look at this depending in how we handle gender.
 const UserGenderType = new GraphQLObjectType({
   name: 'userGender',
   description: 'User Gender Type',

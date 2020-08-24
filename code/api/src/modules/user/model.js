@@ -1,4 +1,4 @@
-'use strict' // Tells program to operate in strict mode.
+'use strict'
 
 // User
 module.exports = function(sequelize, DataTypes) {

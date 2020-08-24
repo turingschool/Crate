@@ -28,17 +28,11 @@ class Item extends PureComponent {
       isLoading: false
     }
   }
-//  Tells what to do when you subscribe
-  onClickSubscribe = (crateId) => {
-		//where we conditionally check, if state.style-preference !== null
-		//else if it is null, re-direct user to Survey component w/ the react router Link component
-		
+
+	onClickSubscribe = (crateId) => {		
 		this.setState({
 			isLoading: true
 		})
-		// When you subscribe for the first time, should open style survey
-		// Check for User.style and if it is null, then load style survey?
-
 		
 		if (!this.props.stylePref.style) {
 			this.props.messageShow('Loading Style Survey...')
@@ -54,9 +48,8 @@ class Item extends PureComponent {
 					this.props.messageShow('Subscribed successfully.')
 					
 					this.props.history.push(userRoutes.subscriptions.path)
-					//programmatically reroutes user to this file path (rerendering new Component)
 				}
-				})
+			})
 				.catch(error => {
 					this.props.messageShow('There was some error subscribing to this crate. Please try again.')
 				})
@@ -119,5 +112,4 @@ function itemState(state) {
   }
 }
 
-//connect always take mapStateToProps & mapDispatchToProps as the arg, 2nd arg is destructured here
 export default connect(itemState, { create, messageShow, messageHide })(withRouter(Item))

@@ -40,5 +40,3 @@ export const userRemove = {
   },
   resolve: remove // Call resolver for remove
 }
-
-// Looks like we would need to add mutation for user update

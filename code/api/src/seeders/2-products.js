@@ -1,9 +1,5 @@
 'use strict';
 
-// Seed file for Products
-// Need to add style and survey attributes
-// Probably need to add products to flesh out the survey
-
 const params = require('../config/params');
 
 module.exports = {
