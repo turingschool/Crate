@@ -29,11 +29,11 @@ export default {
     auth: true
 	},
 	
-	survey: {
-    path: '/style-survey',
-    component: SurveyPage,
-    auth: true
-	},
+	// survey: {
+  //   path: '/style-survey',
+  //   component: SurveyPage,
+  //   auth: true
+	// },
 
 
 }

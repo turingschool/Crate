@@ -1,4 +1,4 @@
-import Survey from '../../modules/survey/SurveyPage'
+import SurveyPage from '../../modules/survey/SurveyPage'
 
 export default {
 	survey: {
