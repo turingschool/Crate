@@ -2,7 +2,6 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean } from 'graphql'
 
 // Product type
-// Add style to this
 const ProductType = new GraphQLObjectType({
   name: 'product',
   description: 'Product Type',

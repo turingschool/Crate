@@ -32,7 +32,6 @@ export async function getById(parentValue, { productId }) {
 }
 
 // Get related products
-// Looks like this is where the bug could be coming from
 export async function getRelated(parentValue, { productId }) {
   return await models.Product.findAll({
     where: {
@@ -44,7 +43,6 @@ export async function getRelated(parentValue, { productId }) {
 }
 
 // Create product
-// Add style to this
 export async function create(parentValue, { name, slug, description, type, gender, image }, { auth }) {
   if(auth.user && auth.user.role === params.user.roles.admin) {
     return await models.Product.create({
@@ -54,8 +52,6 @@ export async function create(parentValue, { name, slug, description, type, gende
       type,
       gender,
       image
-  //  style
-  //  survey
     })
   } else {
     throw new Error('Operation denied.')
@@ -63,7 +59,6 @@ export async function create(parentValue, { name, slug, description, type, gende
 }
 
 // Update product
-// Add style
 export async function update(parentValue, { id, name, slug, description, type, gender, image }, { auth }) {
   if(auth.user && auth.user.role === params.user.roles.admin) {
     return await models.Product.update(
@@ -74,8 +69,6 @@ export async function update(parentValue, { id, name, slug, description, type, g
         type,
         gender,
         image
-    //  style
-    //  survey
       },
       { where: { id } }
     )
@@ -104,5 +97,3 @@ export async function remove(parentValue, { id }, { auth }) {
 export async function getTypes() {
   return Object.values(params.product.types)
 }
-
-// Possibly need to add one for getting survey products

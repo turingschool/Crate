@@ -1,15 +1,4 @@
 module.exports = {
-  // Creates products table
-  // We will need to create a migration to add 2 columns
-    // style: {
-    //   style: Sequelize.TEXT
-    // }
-  // and 
-    // survey: {
-    //   survey: Sequelize.Boolean
-    // }
-
-  // Survey column may not be necessary depending on implementation.
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('products', {
       id: {

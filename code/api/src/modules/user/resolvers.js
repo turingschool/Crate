@@ -1,6 +1,6 @@
 // Imports
 import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken' // JWT is used for auth
+import jwt from 'jsonwebtoken'
 
 // App Imports
 import serverConfig from '../../config/server'

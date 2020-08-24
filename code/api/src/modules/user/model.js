@@ -2,7 +2,6 @@
 
 // User
 module.exports = function(sequelize, DataTypes) {
-  // Defines User model for the ORM
   let User = sequelize.define('users', {
     name: {
       type: DataTypes.STRING
@@ -17,7 +16,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT
     }
   })
-  // Shows db relationships.
   User.associate = function(models) {
     User.hasMany(models.Subscription)
   }

@@ -6,7 +6,6 @@ import { ProductType } from './types'
 import { create, update, remove } from './resolvers'
 
 // Product create
-// Add style and boolean flag for survey
 export const productCreate = {
   type: ProductType,
   args: {
@@ -39,16 +38,6 @@ export const productCreate = {
       name: 'image',
       type: GraphQLString
     }
-
-// style: {
-//   name: 'style',
-//   type: GraphQLString
-// }
-
-// survey: {
-//   name: 'survey',
-//   type: GraphQLBoolean
-// }
   },
   resolve: create
 }
