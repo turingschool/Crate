@@ -19,22 +19,25 @@ import { remove, getListByUser } from '../subscription/api/actions'
 // Component
 class Survey extends PureComponent {
 
-  constructor(props) {
-    super(props)
+  // constructor(props) {
+  //   super(props)
 
-    this.state = {
-      isLoading: false
-    }
-  }
+  //   this.state = {
+  //     isLoading: false
+  //   }
+  // }
 
   render() {
-    const { id, crate, createdAt } = this.props.subscription
-    const { isLoading } = this.state
+    // const { id, crate, createdAt } = this.props.subscription
+    // const { isLoading } = this.state
 
     return (
 			// Use Card comp later for survey options?
       // <Card style={{ width: '18em', backgroundColor: white }}>
-      // </Card>
+			// </Card>
+			<div>
+				TEST
+			</div>
     )
   }
 }
@@ -56,4 +59,4 @@ function itemState(state) {
   }
 }
 
-export default connect(itemState, { remove, getListByUser, messageShow, messageHide })(withRouter(Survey))
+export default Survey

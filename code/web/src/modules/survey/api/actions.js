@@ -12,7 +12,7 @@ export const GET_STYLE_PREF = 'GET_STYLE_PREF'
 // Actions
 
 // Get list of products
-export function getList(isLoading = true, forceRefresh = false) {
+export function getStylePref(isLoading = true, forceRefresh = false) {
   return dispatch => {
     dispatch({
       type: GET_STYLE_PREF,
