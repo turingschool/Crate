@@ -26,6 +26,11 @@ export function setUser(token, user) {
 }
 
 // Login a user using credentials
+
+// A new component called Survey will be created
+// create a new action to submit the style survey data 
+
+
 export function login(userCredentials, isLoading = true) {
   return dispatch => {
     dispatch({

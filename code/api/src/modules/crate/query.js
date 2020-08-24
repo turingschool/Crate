@@ -1,6 +1,8 @@
 // Imports
 import { GraphQLInt, GraphQLString, GraphQLList } from 'graphql'
 
+// Style would have a similar query
+
 // App Imports
 import CrateType from './types'
 import { getAll, getById } from './resolvers'
@@ -13,6 +15,7 @@ export const crates = {
   },
   resolve: getAll
 }
+
 
 // Crate By ID
 export const crateById = {

@@ -18,6 +18,8 @@ export const SUBSCRIPTIONS_GET_FAILURE = 'SUBSCRIPTIONS/GET_FAILURE'
 
 // Actions
 
+// 
+
 // Get list of subscriptions
 export function getList(isLoading = true) {
   return dispatch => {
@@ -121,7 +123,9 @@ export function get(slug, isLoading = true) {
 }
 
 // Create subscription
+// Make a new subscription for the user
 export function create(variables) {
+  // dispatch is a Redux variable
   return dispatch => {
     return axios.post(routeApi, mutation({
       operation: 'subscriptionCreate',

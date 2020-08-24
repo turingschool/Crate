@@ -41,7 +41,9 @@ class Item extends PureComponent {
           this.props.messageShow(response.data.errors[0].message)
         } else {
           this.props.messageShow('Subscribed successfully.')
-
+          // NEEDS to go to Survey for styles survey routing 
+          // If !survey route to survey component
+          // else below
           this.props.history.push(userRoutes.subscriptions.path)
         }
       })

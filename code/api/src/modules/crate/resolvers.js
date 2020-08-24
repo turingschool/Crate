@@ -2,6 +2,8 @@
 import models from '../../setup/models'
 import params from '../../config/params'
 
+// Style would have a similar resolver setup
+
 // Get crate by ID
 export async function getById(parentValue, { crateId }) {
   const crate = await models.Crate.findOne({ where: { id: crateId } })

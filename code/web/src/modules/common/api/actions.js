@@ -6,6 +6,7 @@ export const MESSAGE_SHOW = 'COMMON_MESSAGE_SHOW'
 export const MESSAGE_HIDE = 'COMMON_MESSAGE_HIDE'
 
 // Actions
+// When an event happens - these functions are called to update the state. 
 export function messageShow(message) {
   return { type: MESSAGE_SHOW, message }
 }

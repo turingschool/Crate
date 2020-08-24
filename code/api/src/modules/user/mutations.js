@@ -6,6 +6,8 @@ import { UserType } from './types'
 import { create, remove } from './resolvers'
 
 // Create
+
+// This may be updated to include the style value of a user to null for an intial signup. 
 export const userSignup = {
   type: UserType,
   args: {

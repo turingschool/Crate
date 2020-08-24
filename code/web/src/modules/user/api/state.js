@@ -8,7 +8,11 @@ export const userInitialState = {
   isLoading: false,
   isAuthenticated: false,
   details: null
+  // styleSurveyCompleted: False - from Redux 
 }
+
+// stylePrefereneces: '' - This will be set when the survey
+// results are saved in the database, and requested again.
 
 // State
 export default (state = userInitialState, action) => {
@@ -18,6 +22,7 @@ export default (state = userInitialState, action) => {
         ...state,
         isAuthenticated: !isEmpty(action.user),
         details: action.user,
+        // somewhere here, a new case, set the styles.
       }
 
     case LOGIN_REQUEST:

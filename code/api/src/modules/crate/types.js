@@ -1,6 +1,8 @@
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
+// Style would have a similar type with ID, name and possible description for styles. 
+
 // Crate type
 const CrateType = new GraphQLObjectType({
   name: 'crate',

@@ -17,6 +17,8 @@ module.exports = function(sequelize, DataTypes) {
     }
   })
 
+  // This creates an associated table based on the original user table 
+
   User.associate = function(models) {
     User.hasMany(models.Subscription)
   }

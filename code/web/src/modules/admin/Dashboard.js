@@ -1,3 +1,5 @@
+// Admin Dashboard Component
+
 // Imports
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -23,6 +25,7 @@ const Dashboard = () => (
     <AdminMenu/>
 
     {/* Page Content */}
+    {/* Admin - clicked on Admin Button */}
     <Grid style={{ padding: '2em' }}>
       <GridCell>
         <p style={{ textAlign: 'center', color: grey3 }}>Nothing here yet. Choose an item from admin menu.</p>
@@ -37,6 +40,7 @@ Dashboard.propTypes = {
 }
 
 // Component State
+// Redux - updating the Global State for the User 
 function dashboardState(state) {
   return {
     user: state.user

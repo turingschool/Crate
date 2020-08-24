@@ -15,6 +15,10 @@ import { grey, grey2 } from '../../ui/common/colors'
 import userRoutes from '../../setup/routes/user'
 import { logout } from './api/actions'
 
+
+// This is a specific users profile - this page can indicate
+// that a survey has been completed or not.  We'll see. 
+
 // Component
 const Profile = (props) => (
   <div>

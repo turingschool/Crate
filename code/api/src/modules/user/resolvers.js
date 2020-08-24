@@ -8,6 +8,8 @@ import params from '../../config/params'
 import models from '../../setup/models'
 
 // Create
+
+// This does the work from mutations to updated to set the style attritube to null 
 export async function create(parentValue, { name, email, password }) {
   // Users exists with same email check
   const user = await models.User.findOne({ where: { email } })

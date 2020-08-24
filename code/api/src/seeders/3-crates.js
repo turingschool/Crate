@@ -1,4 +1,6 @@
 'use strict';
+// seeders throw things into a database. 
+// if a styletable, a seeder file will need to be created for the optios. 
 
 module.exports = {
   up: (queryInterface, Sequelize) => {

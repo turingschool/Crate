@@ -2,6 +2,9 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
 // User type
+
+// This may have an additional field for styles
+
 const UserType = new GraphQLObjectType({
   name: 'user',
   description: 'User type',

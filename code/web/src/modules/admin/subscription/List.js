@@ -106,6 +106,7 @@ List.propTypes = {
 }
 
 // Component State
+// Updates Global State to any subscriptions that the user has
 function listState(state) {
   return {
     subscriptions: state.subscriptions

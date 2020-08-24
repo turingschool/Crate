@@ -1,5 +1,8 @@
 'use strict'
 
+
+// Style Prefrences file would like similar in file structure setup/folders, but just style & style preferences
+
 // Subscription
 module.exports = function(sequelize, DataTypes) {
   let Subscription = sequelize.define('subscriptions', {

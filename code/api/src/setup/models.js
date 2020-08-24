@@ -11,6 +11,8 @@ const models = {
   Subscription: databaseConnection.import('../modules/subscription/model')
 }
 
+// Have to import the style and style pref models. 
+
 Object.keys(models).forEach(modelName => {
   if (models[modelName].associate) {
     models[modelName].associate(models)

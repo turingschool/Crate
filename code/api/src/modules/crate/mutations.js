@@ -6,6 +6,9 @@ import CrateType from './types'
 import { create, remove, update } from './resolvers'
 
 // Crate create
+
+// Style will have similar mutations
+
 export const crateCreate = {
   type: CrateType,
   args: {
