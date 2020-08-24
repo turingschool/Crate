@@ -1,6 +1,5 @@
 // Imports
-import { combineReducers } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import { compose, combineReducers } from 'redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 
@@ -41,7 +40,7 @@ export const store = createStore(
   rootReducer,
   initialState,
 
-  composeWithDevTools(
+  compose(
     applyMiddleware(thunk),
   )
 )
