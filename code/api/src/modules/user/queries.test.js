@@ -3,7 +3,6 @@ import express from 'express'
 import graphqlHTTP from 'express-graphql'
 import schema from '../../setup/schema'
 
-
 describe('user queries',  () => {
   let server;
 
@@ -23,7 +22,6 @@ describe('user queries',  () => {
     const response = await request(server)
       .get('/')
       .send({ query: '{ users { name email }}'})
-      // we can send a mutation here instead of a query
       .expect(200)
 
     expect(response.body.data.users.length).toEqual(2)
