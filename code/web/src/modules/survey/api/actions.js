@@ -7,11 +7,10 @@ import { routeApi } from '../../../setup/routes'
 
 // Actions Types
 export const GET_STYLE_PREF = 'GET_STYLE_PREF'
-// export const PRODUCTS_GET_LIST_RESPONSE = 'PRODUCTS/GET_LIST_RESPONSE'
+export const GET_SURVEY_PRODUCTS = 'GET_SURVEY_PRODUCTS'
 
 // Actions
 
-// Get list of products
 export function getStylePref(isLoading = true, forceRefresh = false) {
   return dispatch => {
     dispatch({
@@ -21,16 +20,16 @@ export function getStylePref(isLoading = true, forceRefresh = false) {
     })
 
     // return axios.post(routeApi, query({
-    //   operation: 'products',
-    //   fields: ['id', 'name', 'slug', 'description', 'image', 'createdAt', 'updatedAt']
+		//   operation: 'styleUpdate',
+		//	variables: { style }
+    //   fields: ['style']
     // }))
     //   .then(response => {
     //     if (response.status === 200) {
     //       dispatch({
-    //         type: PRODUCTS_GET_LIST_RESPONSE,
-    //         error: null,
+    //         type: ADD_STYLE_PREF,
+    //         style
     //         isLoading: false,
-    //         list: response.data.data.products
     //       })
     //     } else {
     //       dispatch({
@@ -41,11 +40,42 @@ export function getStylePref(isLoading = true, forceRefresh = false) {
     //     }
     //   })
     //   .catch(error => {
-    //     dispatch({
-    //       type: PRODUCTS_GET_LIST_FAILURE,
-    //       error: 'Some error occurred. Please try again.',
-    //       isLoading: false
-    //     })
+    //       dispatch({
+    //         type: PRODUCTS_GET_LIST_FAILURE,
+    //         error: 'Some error occurred. Please try again.',
+    //         isLoading: false
+    //       })
     //   })
   }
+}
+
+export function getSurveyProducts(isLoading = true, forceRefresh = false) {
+	return dispatch => {
+		return axios.post(routeApi, mutation({
+			operation: 'getSurveyProducts',
+			fields: ['surveyProducts']
+		}))
+			.then(response => {
+				if (response.status === 200) {
+					dispatch({
+						type: GET_SURVEY_PRODUCTS,
+						isLoading,
+						error: null
+					})
+				} else {
+					dispatch({
+            type: PRODUCTS_GET_LIST_FAILURE,
+            error: 'Some error occurred. Please try again.',
+            isLoading: false
+          })
+        }
+      })
+      .catch(error => {
+          dispatch({
+            type: PRODUCTS_GET_LIST_FAILURE,
+            error: 'Some error occurred. Please try again.',
+            isLoading: false
+          })
+			})
+	}
 }

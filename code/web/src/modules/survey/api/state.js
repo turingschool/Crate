@@ -1,11 +1,18 @@
 import {
-	GET_STYLE_PREF
+	GET_STYLE_PREF,
+	GET_SURVEY_PRODUCTS
 } from './actions'
 
 const styleInitialState = {
   isLoading: false,
 	error: null,
 	style: null
+}
+
+const productsInitialState = {
+	isLoading: false,
+	error: null,
+	products: []
 }
 
 export const stylePreference = (state = styleInitialState, action) => {
@@ -35,6 +42,20 @@ export const stylePreference = (state = styleInitialState, action) => {
 		// 		return {
 		// 			//update on survey submission
 		// 		}
+		
+		default:
+			return state
+	}
+}
+
+export const surveyProducts = (state = productsInitialState, action) => {
+	switch (action.type) {
+		case GET_SURVEY_PRODUCTS:
+			return {
+				...state,
+				isLoading: action.isLoading,
+				error: null
+			}
 		
 		default:
 			return state
