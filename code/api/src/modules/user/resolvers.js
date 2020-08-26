@@ -86,6 +86,20 @@ export async function updateAddress(parentValue, { id, address }, { auth }) {
   }
 }
 
+// Update Image
+export async function updateImage(parentValue, { id, address }, { auth }) {
+  if(auth.user){
+    return await models.User.update(
+      {
+        image
+      },
+      { where: { id } }
+    )
+  } else {
+    throw new Error('Operation denied.')
+  }
+}
+
 // Get by ID
 // export async function getById(parentValue, { id }) {
 //   return await models.User.findOne({ where: { id } })
