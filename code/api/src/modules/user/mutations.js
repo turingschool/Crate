@@ -70,3 +70,19 @@ export const updateAddress = {
   },
   resolve: updateAddress
 }
+
+// Upload Image
+export const updateImage = {
+  type: UserType,
+  args: {
+    id: {
+      name: 'id',
+      type: GraphQLInt
+    },
+    image: {
+      image: 'image',
+      type: GraphQLString
+    }
+  },
+  resolve: updateImage
+}
