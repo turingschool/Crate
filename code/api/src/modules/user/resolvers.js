@@ -59,8 +59,8 @@ export async function login(parentValue, { email, password }) {
 }
 
 // Update Email
-export async function updateEmail(parentValue, { id, email }, { auth }) {
-  if(auth.user){
+export async function updateEmailResolver(parentValue, { id, email }, { auth }) {
+  if(auth.user && auth.user.id > 0){
     return await models.User.update(
       {
       email
@@ -72,9 +72,10 @@ export async function updateEmail(parentValue, { id, email }, { auth }) {
   }
 }
 
+
 // Update address
-export async function updateAddress(parentValue, { id, address }, { auth }) {
-  if(auth.user){
+export async function updateAddressResolver(parentValue, { id, address }, { auth }) {
+  if(auth.user && auth.user.id > 0){
     return await models.User.update(
       {
         address
@@ -87,8 +88,8 @@ export async function updateAddress(parentValue, { id, address }, { auth }) {
 }
 
 // Update Image
-export async function updateImage(parentValue, { id, address }, { auth }) {
-  if(auth.user){
+export async function updateImageResolver(parentValue, { id, address }, { auth }) {
+  if(auth.user && auth.user.id > 0){
     return await models.User.update(
       {
         image
@@ -101,17 +102,8 @@ export async function updateImage(parentValue, { id, address }, { auth }) {
 }
 
 // Get by ID
-// export async function getById(parentValue, { id }) {
-//   return await models.User.findOne({ where: { id } })
-// }
-
 export async function getById(parentValue, { id }) {
-  return await models.User.findOne({
-    where: { id },
-    include: [
-    { model: models.UserProduct, as: 'user_product' }
-  ]
-   })
+  return await models.User.findOne({ where: { id } })
 }
 
 // Get all
