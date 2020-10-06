@@ -1,13 +1,68 @@
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+
+
+  <p align="center">
+
 ![Crate](https://raw.githubusercontent.com/atulmy/atulmy.github.io/master/images/crate/hero-with-link.png)
 
 # Crate 👕👖📦
+  <br/>
+  <!-- <a href="https://youtu.be/7aLGTn9YG6Q">Youtube Walk-through</a>
+    <br /> -->
+    <a href="https://github.com/Kathybui732/Crate"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/Kathybui732/Crate">View Demo</a>
+    ·
+    <a href="https://github.com/Kathybui732/Crate/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Kathybui732/Crate/issues">Request Feature</a>
+  </p>
+</p>
 
-#### Get monthly subscription of trendy clothes and accessories.
+## Table of Contents
+
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+* [Usage](#usage)
+* [License](#license)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
+
+
+## About The Project
+
+This project explores an existing brownfield codebase. We will be using the open source crate project. Crate is a platform, similar to Stitch Fix, that allows users to setup monthly subscriptions to receive trendy clothes and accessories. We will be exploring the codebase in order to add test coverage, fix bugs, and extend the current functionality. We will not focus on mobile development. 
+
+Our learning goals were to: 
+
+- Learn and apply strategies for understanding how to analyze a larger, existing code base
+- Apply strategies for reading and evaluating documentation
+- Explore and implement new concepts, patterns, or libraries that have not been explicitly taught while at Turing
+- Practice an advanced, professional git workflow
+
+### Built With
+
 - **API** built with Node, GraphQL, Express, Sequelize (MySQL) and JWT Auth
-- **WebApp** built with React and Redux along with Server Side Rendering (SSR) / SEO friendly
-- **Mobile** (Android and iOS) Native App build with React Native
+- **WebApp** built with React and Redux along with Server Side Rendering (SSR) / SEO friendly. 
 - Written in ES6+ using Babel + Webpack
-- Designed using Adobe Experience Design. Preview it [here](https://xd.adobe.com/view/a662a49f-57e7-4ffd-91bd-080b150b0317/).
+
+## Developers
+
+- [Leigh Larson](https://github.com/leighlars)
+- [Kathy Bui](https://github.com/Kathybui732)
+- [Jake West](https://github.com/jkwest-93)
+- [AJ Tran](https://github.com/ajtran303)
+- [Carly Clift](https://github.com/carlymclift)
+- [Dan Sehl](https://github.com/dtsehl)
+
+- [Project Link](https://github.com/Kathybui732/Crate)
+ 
+- [Project Spec](https://mod4.turing.io/projects/crate/crate.html)
 
 
 ## Features
@@ -34,7 +89,7 @@
 - Sample project with combination of all above
 
 
-## Screenshots and GIFs
+## Usage
 Click on image to view fullscreen and zoom
 
 ### Desktop
@@ -96,41 +151,59 @@ Click on image to view fullscreen and zoom
 
 ## Setup and Running
 - Prerequisites
-  - Node
-  - MySQL (or Postgres / Sqlite / MSSQL)
-- Clone repo `git clone git@github.com:atulmy/crate.git crate`
+  - Node -- information can be found [here](https://treehouse.github.io/installation-guides/mac/node-mac.html)
+  - MySQL (or Postgres / Sqlite / MSSQL) -- information can be found [here](https://postgresapp.com/) (Note: user may need to force quit and restart terminal and/or computer for success)
+  - Once you have postgreSQL installed, complete the following:
+  - Run `psql` in your terminal to access the postrgres command line interface (CLI)
+  - Check your available postgres users by running `\du` in the postgres CLI. Your available users are listed under “Role name.” Use this user as your username in the `database.json file`
+  - In `psql`, create your database with the command `CREATE DATABASE crate;` 
+
+
+- Clone repo `git clone git@github.com:KathyBui732/crate.git crate`
 - Switch to `code` directory `cd code`
 - Configurations
-  - Modify `/api/src/config/database.json` for database credentials
+  - Modify `/api/src/config/database.json` for database credentials -- assign either `postgres` or your `<username>` values to `username` keys, aforementioned above. Assign `postgres` value to `dialect` key. 
   - Modify `/api/.env` for PORT (optional)
   - Modify `/web/.env` for PORT / API URL (optional)
-  - Modify `/mobile/src/setup/config.json` for API URL (tip: use `ifconfig` to get your local IP address)
+
 - Setup
-  - API: Install packages and database setup (migrations and seed) `cd api` and `npm run setup`
-  - Webapp: Install packages `cd web` and `npm install`
-  - Mobile: 
-    1. Install packages `cd mobile` and `npm install`
-    2. Install iOS dependencies `cd mobile/ios` `pod install`
+  - API: Install packages and database setup (migrations and seed) `cd api` and `npm install pg --save` and `npm run setup`
+  - Webapp: Install packages `cd web` and `npm install`. Note: if gyp: No Xcode or CLT version detected! gyp ERR! configure error
+  - Error occurring when running `npm install` from the web directory.
+  - `xcode-select --print-path` # this should yield /Library/Developer/CommandLineTool if Xcode was previously installed
+  - `sudo rm -r -f /Library/Developer/CommandLineTools` # to uninstall Xcode tool
+  - `xcode-select --install` # to reinstall - if you get an error stating that you cannot reinstall Xcode because it does not exist in your software update
+
+  - If the `xcode-select --install` command does not work, install xcode manually through [here]:
+(https://developer.apple.com/download/more/?name=for%20Xcode)
+  
 - Development
   - Run API `cd api` and `npm start`, browse GraphiQL at http://localhost:8000/
   - Run Webapp `cd web` and `npm start`, browse webapp at http://localhost:3000/
-  - Run Mobile `cd mobile` and `npx react-native run-ios` for iOS and `npx react-native run-android` for Android
 - Production
   - Run API `cd api` and `npm run start:prod`, creates an optimized build in `build` directory and runs the server
   - Run Webapp `cd web` and `npm run start:prod`, creates an optimized build in `build` directory and runs the server
 
-## Multi-package automation
-- New developers are advised to run through the above 'setup and running' process before reading further.
-- Optional multi-package automation for faster setup and easier dev environment initiation.
-- No need to cd to sub-folders unless working with mobile or running a production build.
-- Once Node, MySQL, repo clone and configuration are setup correctly
-    - Switch to `code` directory `cd code`
-    - Setup
-        - Setup API, Webapp and Mobile with a single command `npm run setup`
-    - Development
-        - Run API and Webapp `npm start`, browse GraphiQL at http://localhost:8000/ and Webapp at http://localhost:8000/
-        - Run API alone `npm start:api`, browse GraphiQL at http://localhost:8000/
-        - Run Webapp alone `npm start:web`, browse webapp at http://localhost:3000/
+## Repo Origin Author Information 
+
+## Author
+- Atul Yadav - [GitHub](https://github.com/atulmy) · [Twitter](https://twitter.com/atulmy)
+
+## Built With
+- **API** built with Node, GraphQL, Express, Sequelize (MySQL) and JWT Auth
+- **WebApp** built with React and Redux along with Server Side Rendering (SSR) / SEO friendly. 
+- Written in ES6+ using Babel + Webpack
+- **Mobile** (Android and iOS) Native App build with React Native
+- Designed using Adobe Experience Design. Preview it [here](https://xd.adobe.com/view/a662a49f-57e7-4ffd-91bd-080b150b0317/).
+
+
+## Contributors
+- Ebou Jobe - [GitHub](https://github.com/ebouJ)
+- Nenad Radovanovic - [GitHub](https://github.com/nrcloud) · [Twitter](https://twitter.com/publicshone)
+- Nicholas Drew - [GitHub](https://github.com/nickdrew)
+- Mateus Abdala - [GitHub](https://github.com/mateusabdala)
+- Hossein Nedaee - [GitHub](https://github.com/hosseinnedaee)
+- Mohammad Afzal - [GitHub](https://github.com/afzalex)
 
 ## Resources and Inspirations
 - ✍️ Opinionated project architecture for Full-Stack JavaScript Applications - [GitHub](https://github.com/atulmy/fullstack-javascript-architecture)
@@ -150,22 +223,6 @@ Click on image to view fullscreen and zoom
 - Comparing with any other languague, you usually start with a framework, for example, Laravel (PHP), Django (Python) or Ruby on Rails (Ruby) which includes a ton of features and codebase which you never end up using.
 - I've personally found, learning by going through a good project codebase step by step while building your own project helps in ease of understanding and remembering
 
-
-## Repo Origin Author Information 
-
-## Author
-- Atul Yadav - [GitHub](https://github.com/atulmy) · [Twitter](https://twitter.com/atulmy)
-
-
-## Contributors
-- Ebou Jobe - [GitHub](https://github.com/ebouJ)
-- Nenad Radovanovic - [GitHub](https://github.com/nrcloud) · [Twitter](https://twitter.com/publicshone)
-- Nicholas Drew - [GitHub](https://github.com/nickdrew)
-- Mateus Abdala - [GitHub](https://github.com/mateusabdala)
-- Hossein Nedaee - [GitHub](https://github.com/hosseinnedaee)
-- Mohammad Afzal - [GitHub](https://github.com/afzalex)
-
-
 ## Donate
 If you liked this project, you can donate to support it ❤️
 
@@ -180,3 +237,19 @@ Looking for a developer to build your next idea or need a developer to work remo
 Copyright (c) 2018 Atul Yadav http://github.com/atulmy
 
 The MIT License (http://www.opensource.org/licenses/mit-license.php)
+
+
+## Acknowledgements
+* [FlatIcon](https://www.flaticon.com/home)
+* [Giphy](https://giphy.com)
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/KathyBui/crate.svg?style=flat-square
+[contributors-url]: https://github.com/Kathybui732/crate/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/KathyBui732/crate.svg?style=flat-square
+[forks-url]: https://github.com/Kathybui732/crate/network/members
+[stars-shield]: https://img.shields.io/github/stars/KathyBui732/crate.svg?style=flat-square
+[stars-url]: https://github.com/Kathybui732/crate/stargazers
+[issues-shield]: https://github.com/Kathybui732/crate.svg?style=flat-square
+[issues-url]: https://github.com/Kathybui732/crate/issues
