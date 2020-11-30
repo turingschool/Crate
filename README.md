@@ -220,4 +220,4 @@ Travis McKinstry
 ## License
 Copyright (c)
 
-The MIT License (http://www.opensource.org/licenses/mit-license.php)
+<!--The MIT License (http://www.opensource.org/licenses/mit-license.php)-->
