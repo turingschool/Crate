@@ -5,6 +5,7 @@ import { GraphQLInt } from 'graphql'
 import SubscriptionType from './types'
 import { create, remove } from './resolvers'
 
+// Defined mutations: create, destroy
 // Subscription create
 export const subscriptionCreate = {
   type: SubscriptionType,
@@ -28,5 +29,3 @@ export const subscriptionRemove = {
   },
   resolve: remove
 }
-
-// Survey Create 
