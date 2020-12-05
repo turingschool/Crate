@@ -7,6 +7,8 @@ import serverConfig from '../../config/server'
 import params from '../../config/params'
 import models from '../../setup/models'
 
+// User actions: create, login, destroy, index, show by id
+// Action names correspond to requests made by the FE 
 // Create
 export async function create(parentValue, { name, email, password }) {
   // Users exists with same email check
