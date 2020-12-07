@@ -1,16 +1,16 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('crateProducts', {
+    return queryInterface.createTable('productsHistory', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      crateId: {
+      userId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'crates',
+          model: 'users',
           key: 'id'
         },
         allowNull: false
@@ -23,6 +23,11 @@ module.exports = {
         },
         allowNull: false
       },
+      kept: {
+        allowNull: false,
+        defaultValue: true,
+        type: Sequelize.BOOLEAN
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -34,6 +39,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('crateProducts');
+    return queryInterface.dropTable('productsHistory');
   }
 }
