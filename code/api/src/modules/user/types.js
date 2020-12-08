@@ -1,9 +1,6 @@
 // Imports
-import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
+import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean } from 'graphql'
 
-// GraphQL User object
-// Declaration of User attributes, and their corresponding data types
-// Will need to add a survey attribute, with defined fields 
 // User type
 const UserType = new GraphQLObjectType({
   name: 'user',
@@ -15,6 +12,8 @@ const UserType = new GraphQLObjectType({
     email: { type: GraphQLString },
     password: { type: GraphQLString },
     role: { type: GraphQLString },
+    survey: { type: GraphQLBoolean },
+    style: { type: GraphQLString },
     createdAt: { type: GraphQLString },
     updatedAt: { type: GraphQLString }
   })

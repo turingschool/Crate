@@ -3,9 +3,8 @@ import { GraphQLString, GraphQLInt } from 'graphql'
 
 // App Imports
 import { UserType } from './types'
-import { create, remove } from './resolvers'
+import { create, remove, update } from './resolvers'
 
-// Defined mutations: create, destroy 
 // Create
 export const userSignup = {
   type: UserType,
@@ -39,3 +38,5 @@ export const userRemove = {
   },
   resolve: remove
 }
+
+// Change survey from false to true
