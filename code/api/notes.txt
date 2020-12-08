@@ -14,4 +14,13 @@ Step Two:
   },
 
 Step Three:
- - $ NODE_ENV=test yarn(npm) db:migrate; yarn db:seed;
+ - $ NODE_ENV=test npm db:migrate; NODE_ENV=test npm db:seed
+
+Step Four:
+ - $ npm install --save-dev jest
+ - $ npm install --save-dev supertest
+
+Step Five:
+ Modify package.json to add jest watcher to scripts
+
+  "test:watch": "jest --watch"
