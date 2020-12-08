@@ -68,9 +68,7 @@ const Profile = (props) => (
     </Grid>
     <Grid>
       <GridCell style={{ padding: '2em', textAlign: 'center' }}>
-        <Link to={userRoutes.subscriptions.path}>
-              <Button theme="primary">Subscriptions</Button>
-        </Link>
+        <Button theme="primary" onClick={props.loadHistory}>Order History</Button>
         <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button>
         <Button theme="primary" style={{ marginLeft: '1em' }}>Edit Info</Button>
       </GridCell>
@@ -81,7 +79,9 @@ const Profile = (props) => (
 // Component Properties
 Profile.propTypes = {
   user: PropTypes.object.isRequired,
-  logout: PropTypes.func.isRequired
+  logout: PropTypes.func.isRequired, 
+  loadHistory: PropTypes.func 
+  //loadHistory will be required once that functionality is written
 }
 
 // Component State
