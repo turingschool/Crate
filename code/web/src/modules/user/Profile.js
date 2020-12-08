@@ -49,10 +49,22 @@ const Profile = (props) => (
         <p style={{ color: grey2, marginBottom: '2em' }}>123 West 5th St City, State 80654</p>
         {/*Address text should be dynamic from user details ie props.user.details.shipping */}
       </GridCell>
-      {/*<Link to={userRoutes.subscriptions.path}>
-          <Button theme="primary">Subscriptions</Button>
-      </Link>
-<Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button>*/}
+    </Grid>
+    <Grid>
+      {
+        this.props.orderHistory.isLoading
+          ? <Loading/>
+          : this.props.orderHistory.list.length > 0
+              ? this.props.orderHistory.list.map(product => (
+                  <GridCell key={product.id} style={{ margin: '2em', float: 'left' }}>
+                    <H3>{product.name}</H3>
+                    <p>{product.description}</p>
+                    {/* Items will also have a boolean value to indicate if item was kept */}
+                    {/* Render image with opacity based on boolean value */}
+                  </GridCell>
+                ))
+              : <EmptyMessage message="You have not received any crate orders yet." />
+      }
     </Grid>
     <Grid>
       <GridCell style={{ padding: '2em', textAlign: 'center' }}>
