@@ -1,0 +1,17 @@
+Step One:
+ - Create a PostGres DB (crate_test) $ psql
+  - CREATE DATABASE <db_name>;
+
+Step Two:
+ - Modify `src/config/database.json`
+  "test": {
+    "username": "postgres",
+    "password": null,
+    "database": "crate_testing", # modify this to be different, so we don't teardown our development db when running tests!
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "seederStorage": "sequelize"
+  },
+
+Step Three:
+ - $ NODE_ENV=test yarn(npm) db:migrate; yarn db:seed;
