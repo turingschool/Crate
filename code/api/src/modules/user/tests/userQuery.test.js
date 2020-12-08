@@ -45,3 +45,5 @@ describe('User Queries', () => {
       done();
    });
 })
+
+// add additional queries 
