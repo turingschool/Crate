@@ -28,6 +28,7 @@ export function setUser(token, user) {
 
 // Login a user using credentials
 export function login(userCredentials, isLoading = true) {
+  console.log(userCredentials)
   return dispatch => {
     dispatch({
       type: LOGIN_REQUEST,
