@@ -35,36 +35,36 @@ export function login(userCredentials, isLoading = true) {
       isLoading
     })
 
-    // return axios.post(routeApi, query({
-    //   operation: 'userLogin',
-    //   variables: userCredentials,
-    //   fields: ['user {name, email, role}', 'token']
-    // }))
-    //   .then(response => {
-    //     let error = ''
+    return axios.post(routeApi, query({
+      operation: 'userLogin',
+      variables: userCredentials,
+      fields: ['user {name, email, role}', 'token']
+    }))
+      .then(response => {
+        let error = ''
 
-    //     if (response.data.errors && response.data.errors.length > 0) {
-    //       error = response.data.errors[0].message
-    //     } else if (response.data.data.userLogin.token !== '') {
-    //       const token = response.data.data.userLogin.token
-    //       const user = response.data.data.userLogin.user
-    //       console.log(user)
-    //       dispatch(setUser(token, user))
-    //       //change the state to true 
-    //       loginSetUserLocalStorageAndCookie(token, user) 
-    //     }
+        if (response.data.errors && response.data.errors.length > 0) {
+          error = response.data.errors[0].message
+        } else if (response.data.data.userLogin.token !== '') {
+          const token = response.data.data.userLogin.token
+          const user = response.data.data.userLogin.user
+          console.log(user)
+          dispatch(setUser(token, user))
+          //change the state to true 
+          loginSetUserLocalStorageAndCookie(token, user) 
+        }
 
-    //     dispatch({
-    //       type: LOGIN_RESPONSE,
-    //       error
-    //     })
-    //   })
-    //   .catch(error => {
-    //     dispatch({
-    //       type: LOGIN_RESPONSE,
-    //       error: 'Please try again'
-    //     })
-    //   })
+        dispatch({
+          type: LOGIN_RESPONSE,
+          error
+        })
+      })
+      .catch(error => {
+        dispatch({
+          type: LOGIN_RESPONSE,
+          error: 'Please try again'
+        })
+      })
   }
 }
 
