@@ -6,7 +6,7 @@ import {
     CRATES_GET_RESPONSE,
     CRATES_GET_FAILURE,
   } from './actions'
-import  { crates }  from './state'
+import  { crates, crate }  from './state'
 import '@testing-library/jest-dom';
 import { waitFor } from '@testing-library/react';
 
@@ -32,59 +32,64 @@ describe('cratesActions', () => {
             updatedAt: new Date()
           }
         ]
-    })
+    });
   
     it('should be able to make a request with CRATES_GET_LIST_REQUEST', () => {
-  
-      expect(reducer(fakeInitialState, {
-        type: CRATES_GET_LIST_REQUEST,
-        isLoading: true,
-        error: null
-      }
-      )).toEqual({
+      
+      const action = { type: CRATES_GET_LIST_REQUEST,isLoading: true,}
+      
+      const result = reducer(fakeInitialState, action)
+
+      const newState = {
         "error": null,
         "isLoading": true,
         "list":[]
-      });
-    })
+      }
+
+      expect(result).toEqual(newState)
+    });
 
     it('should be able to get user\'s crates with CRATES_GET_LIST_RESPONSE', () => {
+
+      const action = { type: CRATES_GET_LIST_RESPONSE, error: 'enjoy your crate',list: mockCrates }
   
-      expect(reducer(fakeInitialState, {
-        type: CRATES_GET_LIST_RESPONSE,
-        isLoading: false,
-        error: 'enjoy your crate',
-        list: mockCrates 
-      }
-      )).toEqual({
+      const result = reducer(fakeInitialState, action)
+
+      const newState = {
         isLoading: false,
         error: 'enjoy your crate',
         list: mockCrates
-      });
-    })
+      }
+
+      expect(result).toEqual(newState)
+
+    });
 
     it('should be able to display an error with CRATES_GET_LIST_FAILURE' , () => {
-  
-      expect(reducer(fakeInitialState, {
+      
+      const actions = {
         type: CRATES_GET_LIST_FAILURE,
-        isLoading: false,
         error: 'An error occurred, please try again'
       }
-      )).toEqual({
+      const result  = reducer(fakeInitialState, actions)
+
+      const newState = {
         isLoading: false,
         error: 'An error occurred, please try again',
         list: []
-      });
-    })
-})
+      }
+
+      expect(result).toEqual(newState);
+    });
+});
 
 describe('crateActions', () => {
 
-    let fakeInitialState, fakeCrate, reducer
+    let fakeInitialState, fakeCrate, reducer;
   
       beforeEach(() =>{
 
-        reducer = crates;
+        reducer = crate;
 
         fakeInitialState = {
             isLoading: false,
@@ -100,28 +105,68 @@ describe('crateActions', () => {
             updatedAt: new Date()
           }
         
-    })
+    });
   
     it('should be able to request with CRATES_GET_REQUEST', () => {
   
-      expect(reducer(fakeInitialState, {
+      const action = { 
         type: CRATES_GET_REQUEST,
         isLoading: true,
-        error: null
       }
-      )).toEqual(fakeInitialState);
-    })
 
-    it.skip('should be able to get a response with CRATES_GET_RESPONSE', async() => {
-    
-      await waitFor(() => expect(reducer(fakeInitialState, {
+      const result = reducer(fakeInitialState, action)
+
+      const newState = {
+        isLoading: true,
+        error: null,
+        item: {}
+      }
+
+      expect(result).toEqual(newState);
+
+    });
+
+    it('should be able to get a crate with CRATES_GET_RESPONSE', () => {
+
+      const action = {
         type: CRATES_GET_RESPONSE,
         isLoading: false,
-        error: 'no errors',
+        error: 'no action error',
         item: fakeCrate
       }
-      ))).toEqual({});
-    })
-    //await waitFor(() => expect(mockAPI).toHaveBeenCalledTimes(1))
-   
-})
+
+      const result = reducer(fakeInitialState, action)
+
+      const newState = {
+        "error": "no action error",
+        "isLoading": false,
+        "item": {
+          "createdAt": new Date(),
+          "description": "A fake subscription",
+          "id": 0,
+          "name": "a fake crate name",
+          "updatedAt": new Date(),
+          }
+        }
+
+      expect(result).toEqual(newState);
+    });
+
+    it('should be able to show an error with CRATES_GET_FAILURE', () => {
+
+      const action = {
+        type: CRATES_GET_FAILURE,
+        error: 'An error occurred please try again'
+      } 
+
+      const result = reducer(fakeInitialState, action)
+
+      const newState = {
+        "error": "An error occurred please try again",
+        "isLoading": false,
+        "item": {}
+      }
+
+      expect(result).toEqual(newState);
+    });
+});

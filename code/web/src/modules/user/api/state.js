@@ -19,8 +19,10 @@ export default (state = userInitialState, action) => {
       ...state,
       error: null,
       isLoading: action.isLoading,
-      answers
+      isSurveyCompleted: true,
+      // style: action.style
     }
+
     case SET_USER:
       return {
         ...state,
