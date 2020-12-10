@@ -1,11 +1,28 @@
 // Imports
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-
+ // 'athletic, business attire, casual everyday'
+ // https://stackoverflow.com/questions/41358255/get-max-key-in-key-value-pair-in-javascript
 // App Imports
 import serverConfig from '../../config/server'
 import params from '../../config/params'
 import models from '../../setup/models'
+
+// Update
+export async function updateStyle(parentValue, { id, survey, style }, { auth }) {
+
+  // style attribute update
+  if (auth.user) {
+    await models.User.update(
+      {
+        survey: true,
+        style: newStyle
+      },
+      { where: { id }}
+    )
+    return await getById(parentValue, { id })
+  }
+}
 
 // Create
 export async function create(parentValue, { name, email, password }) {

@@ -15,7 +15,7 @@ describe('User Queries', () => {
            })
        )
    })
-
+  
    it('returns all users', async (done) => {
        const response = await request(server)
         .post('/graphql')
@@ -45,5 +45,3 @@ describe('User Queries', () => {
       done();
    });
 })
-
-// add additional queries 
