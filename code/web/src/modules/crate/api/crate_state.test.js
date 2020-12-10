@@ -28,8 +28,8 @@ describe('cratesActions', () => {
           {
             name: 'a fake Crate',
             description: 'A fake description',
-            createdAt: new Date(),
-            updatedAt: new Date()
+            createdAt: 'mock date',
+            updatedAt: 'mock date'
           }
         ]
     });
@@ -101,8 +101,8 @@ describe('crateActions', () => {
             id: 0,
             name: 'a fake crate name',
             description: 'A fake subscription',
-            createdAt: new Date(),
-            updatedAt: new Date()
+            createdAt: 'mock date',
+            updatedAt: 'mock date'
           }
         
     });
@@ -141,11 +141,11 @@ describe('crateActions', () => {
         "error": "no action error",
         "isLoading": false,
         "item": {
-          "createdAt": new Date(),
+          "createdAt": 'mock date',
           "description": "A fake subscription",
           "id": 0,
           "name": "a fake crate name",
-          "updatedAt": new Date(),
+          "updatedAt": 'mock date',
           }
         }
 
