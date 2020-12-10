@@ -162,7 +162,6 @@ class StyleSurvey extends Component {
               </Grid>
 
 
-
             </div>
         </>
         )
