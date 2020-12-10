@@ -85,33 +85,113 @@ class StyleSurvey extends Component {
 
         this.state = {
             currentAnswer: null,
-            userAnswers : [],
-            images: ['https://images.unsplash.com/photo-1525490829609-d166ddb58678?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60',
-                    'https://images.unsplash.com/photo-1549849171-09f62448709e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60',
-                    'https://images.unsplash.com/photo-1570997491915-47ade51fed9f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTJ8fHxlbnwwfHx8&auto=format&fit=crop&w=500&q=60'
-                    ]
+            userAnswers : {
+              athletic: 0,
+              'business attire': 0,
+              'casual everyday': 0
+            },
+            currentIndex: 0,
+            survey: [
+              {
+                category: 'Tops',
+                images: [
+                  {
+                    src: 'https://images.unsplash.com/photo-1525490829609-d166ddb58678?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60',
+                    style: 'athletic'
+                  },
+                  {
+                    src: 'https://images.unsplash.com/photo-1549849171-09f62448709e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60',
+                    style: 'business attire'
+                  },
+                  {
+                    src: 'https://images.unsplash.com/photo-1570997491915-47ade51fed9f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTJ8fHxlbnwwfHx8&auto=format&fit=crop&w=500&q=60',
+                    style: 'casual everyday'
+                  }
+                ]
+              },
+              {
+                category: 'Bottoms',
+                images: [
+                  {
+                    src: 'https://images.unsplash.com/photo-1525490829609-d166ddb58678?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60',
+                    style: 'athletic'
+                  },
+                  {
+                    src: 'https://images.unsplash.com/photo-1549849171-09f62448709e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60',
+                    style: 'business attire'
+                  },
+                  {
+                    src: 'https://images.unsplash.com/photo-1570997491915-47ade51fed9f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTJ8fHxlbnwwfHx8&auto=format&fit=crop&w=500&q=60',
+                    style: 'casual everyday'
+                  }
+                ]
+              },
+              {
+                category: 'Shoes',
+                images: [
+                  {
+                    src: 'https://images.unsplash.com/photo-1525490829609-d166ddb58678?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60',
+                    style: 'athletic'
+                  },
+                  {
+                    src: 'https://images.unsplash.com/photo-1549849171-09f62448709e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60',
+                    style: 'business attire'
+                  },
+                  {
+                    src: 'https://images.unsplash.com/photo-1570997491915-47ade51fed9f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTJ8fHxlbnwwfHx8&auto=format&fit=crop&w=500&q=60',
+                    style: 'casual everyday'
+                  }
+                ]
+              },
+              {
+                category: 'Accessories',
+                images: [
+                  {
+                    src: 'https://images.unsplash.com/photo-1525490829609-d166ddb58678?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60',
+                    style: 'athletic'
+                  },
+                  {
+                    src: 'https://images.unsplash.com/photo-1549849171-09f62448709e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60',
+                    style: 'business attire'
+                  },
+                  {
+                    src: 'https://images.unsplash.com/photo-1570997491915-47ade51fed9f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTJ8fHxlbnwwfHx8&auto=format&fit=crop&w=500&q=60',
+                    style: 'casual everyday'
+                  }
+                ]
+              }
+            ]
             }
         }
         
-        displayImages = () => {
-            if (!this.state.images || this.props.isLoading) {
-                return <div> Loading...</div>
-            } else {
-              return this.state.images.map((image, i) => {
-                return <ImageTile 
-                    onClick={(e) => {this.collectAnswer(e)}}
-                    key={i} 
-                    id={i}//category instead of an id
-                    margin={'.5em'}
-                    width={200} 
-                    height={200} 
-                    image={image} />
-              })
-            }
-        }
+      displayImages = () => {
+        const selectedSurvey = this.state.survey[this.state.currentIndex];
+        return selectedSurvey.images.map((image, i) => {
+          return <ImageTile 
+            onClick={(e) => {this.collectAnswer(e)}}
+            key={i}
+            data-category={image.style} 
+            id={i}
+            margin={'.5em'}
+            width={200} 
+            height={200} 
+            image={image.src} />
+        })
+      }
 
     collectAnswer = (e) => {
-        console.log(e.target.id)
+        this.state.userAnswers[e.target.dataset.category]++;
+    }
+
+    navigateSurvey = (direction) => {
+      let newIndex = direction === 'forward' ? this.state.currentIndex + 1 : this.state.currentIndex - 1;
+      this.setState({
+        currentIndex: newIndex
+      })
+    }
+
+    completeSurvey = () => {
+      console.log(this.state.userAnswers);
     }
 
     render() {
@@ -139,27 +219,35 @@ class StyleSurvey extends Component {
 
               <Grid justifyCenter={true} >
                 {/* if the answers.length === 0 */}
-              <Button style={{ margin: '1.5em 1.5em 1.5em 2.5em', height: '37px' }} theme="secondary">
+              {this.state.currentIndex !== 0 && <Button style={{ margin: '1.5em 1.5em 1.5em 2.5em', height: '37px' }} theme="secondary" onClick={() => this.navigateSurvey('back')}>
                 Back
-              </Button>
+              </Button>}
                 <GridCell style={{margin: '.3em', textAlign: 'center'}}>
                         <H6 font="primary" style={{ textShadow: textLevel1, marginTop: '1em', fontSize: '2em'}}
                         >
-                        Question 1</H6>
+                        {this.state.survey[this.state.currentIndex].category}</H6>
                         <p style={{ margin: '1em'}}>Select your answer</p>
                 </GridCell>
 
-                <Button theme="secondary" style={{ height: '37px', margin: '1.5em',}} >
+                {this.state.currentIndex !== this.state.survey.length - 1 && <Button theme="secondary" style={{ height: '37px', margin: '1.5em',}} onClick={() => this.navigateSurvey('forward')} >
                 Next
-              </Button>
+              </Button>}
               </Grid>
 
               <Grid alignCenter={true}>
                     <GridCell  justifyCenter style={{ display: 'inline-flex'}}>
                         {this.displayImages()}
-                       
                     </GridCell>
               </Grid>
+
+              {
+                this.state.currentIndex === this.state.survey.length - 1 &&
+                <Grid alignCenter={true}>
+                      <GridCell  justifyCenter style={{ display: 'inline-flex'}}>
+                      <Button style={{ margin: '1.5em 1.5em 1.5em 2.5em', height: '37px' }} theme="secondary" onClick={() => this.completeSurvey()}>Submit</Button>
+                      </GridCell>
+                </Grid>
+              }
 
 
 
