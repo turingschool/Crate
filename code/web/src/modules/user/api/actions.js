@@ -28,7 +28,6 @@ export function setUser(token, user) {
 
 // Login a user using credentials
 export function login(userCredentials, isLoading = true) {
-  console.log(userCredentials)
   return dispatch => {
     dispatch({
       type: LOGIN_REQUEST,
@@ -48,7 +47,6 @@ export function login(userCredentials, isLoading = true) {
         } else if (response.data.data.userLogin.token !== '') {
           const token = response.data.data.userLogin.token
           const user = response.data.data.userLogin.user
-          console.log(user)
           dispatch(setUser(token, user))
           //change the state to true 
           loginSetUserLocalStorageAndCookie(token, user) 
