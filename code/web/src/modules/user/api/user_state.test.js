@@ -36,9 +36,16 @@ describe('userActions', () => {
 
   })
 
-  it('should work', () => {
-    expect(true).toEqual(true);
-  })
+  // it('should work', () => {
+  //   //test ASIGN_STYLE
+    
+  //   expect(reducer(fakeState, {
+
+  //   }))
+  //   .toEqual(true)
+
+  //   expect(true).toEqual(true);
+  // })
 
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual(fakeState)
