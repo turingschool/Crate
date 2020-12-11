@@ -70,7 +70,10 @@ import { grey, grey2 } from '../../ui/common/colors';
 import { Helmet } from 'react-helmet';
 import { white } from '../../ui/common/colors';
 import { textLevel1 } from '../../ui/common/shadows';
-import { level1 } from '../../ui/common/shadows';
+import { level1, glowShadow } from '../../ui/common/shadows';
+import { messageShow, messageHide } from '../common/api/actions'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 //App Imports
 import Grid from '../../ui/grid/Grid';
@@ -94,19 +97,25 @@ class StyleSurvey extends Component {
 					category: 'Tops',
 					images: [
 						{
+							id: 'athletic-top',
 							src:
 								'https://upload.wikimedia.org/wikipedia/commons/2/24/Blue_Tshirt.jpg',
 							style: 'athletic',
+							selected: false,
 						},
 						{
+							id: 'business-top',
 							src:
 								'https://www.kustomkit.com/colours/1200/KK710lightblue_front.jpg',
 							style: 'business attire',
+							selected: false,
 						},
 						{
+							id: 'casual-top',
 							src:
 								'https://i.pinimg.com/originals/da/88/22/da8822839f9f281cf5b274df48c7b90f.jpg',
 							style: 'casual everyday',
+							selected: false,
 						},
 					],
 				},
@@ -114,19 +123,25 @@ class StyleSurvey extends Component {
 					category: 'Bottoms',
 					images: [
 						{
+							id: 'athletic-bottom',
 							src:
 								'http://www.iaeiu.com/wp-content/uploads/2018/05/crysp-jeans-pants-black-mens-crysp-fb-black-white-track-pants-black.jpg',
 							style: 'athletic',
+							selected: false,
 						},
 						{
+							id: 'business-bottom',
 							src:
 								'https://content.backcountry.com/images/items/900/NKE/NKE012B/KH.jpg',
 							style: 'business attire',
+							selected: false,
 						},
 						{
+							id: 'casual-bottom',
 							src:
 								'https://www.kingsize.com.au/user/images/3316_1000_1000.jpg?t=1801051602',
 							style: 'casual everyday',
+							selected: false,
 						},
 					],
 				},
@@ -134,19 +149,25 @@ class StyleSurvey extends Component {
 					category: 'Shoes',
 					images: [
 						{
+							id: 'athletic-shoes',
 							src:
 								'https://www.careyfashion.com/fashion/wp-content/uploads/2016/12/athletic-shoes-3.jpg',
 							style: 'athletic',
+							selected: false,
 						},
 						{
+							id: 'business-shoes',
 							src:
 								'https://ae01.alicdn.com/kf/HTB1r5yEKVXXXXX5aXXXq6xXFXXX6/2016-New-Men-Dress-Formal-Oxfords-Leather-Shoes-Business-Casual-Shoes-Dress-Fashion-Luxury-Leather-Flat.jpg',
 							style: 'business attire',
+							selected: false,
 						},
 						{
+							id: 'casual-shoes',
 							src:
 								'https://stevie-wonder.com/wp-content/uploads/2018/03/Mens-Comfort-Polar-Fleece-Slip-On-Slippers-Color-Block-Memory-Foam-House-Loafers-Shoes-by-UltraIdeas-e1520173456434.jpg',
 							style: 'casual everyday',
+							selected: false,
 						},
 					],
 				},
@@ -154,19 +175,25 @@ class StyleSurvey extends Component {
 					category: 'Accessories',
 					images: [
 						{
+							id: 'athletic-accessory',
 							src:
 								'https://image.sportsmansguide.com/adimgs/l/2/235435_ts.jpg',
 							style: 'athletic',
+							selected: false,
 						},
 						{
+							id: 'business-accessory',
 							src:
 								'http://www.clker.com/cliparts/7/b/0/3/12828581742005620564watch.jpg',
 							style: 'business attire',
+							selected: false,
 						},
 						{
+							id: 'casual-accessory',
 							src:
 								'https://i.pinimg.com/originals/f1/39/a2/f139a2591edc7dc7f66e4b5dff7a431a.png',
 							style: 'casual everyday',
+							selected: false,
 						},
 					],
 				},
@@ -189,25 +216,27 @@ class StyleSurvey extends Component {
 						maxWidth: '300px',
 					}}>
 					<ImageTile
-						onClick={e => {
-							this.collectAnswer(e);
-						}}
 						key={i}
 						data-category={image.style}
-						id={i}
 						width={'100%'}
             height={'250px'}
 						image={image.src}
-						style={{ boxShadow: level1, backgroundSize: 'cover' }}
+						style={{ boxShadow: image.selected ? glowShadow : level1, backgroundSize: 'cover' }}
 					/>
 					<Button
+						id={image.id}
 						style={{
 							margin: '1.5em 1.5em 1.5em 2.5em',
 							height: '37px',
 							width: '200px',
+							fontSize: '14px'
 						}}
-						theme='secondary'>
-						Select This Style
+						theme='secondary'
+						onClick={e => {
+							this.collectAnswer(e);
+						}}
+					>
+						{image.selected ? 'Unselect this style' : 'Select this style'}
 					</Button>
 				</GridCell>
 			);
@@ -215,7 +244,12 @@ class StyleSurvey extends Component {
 	};
 
 	collectAnswer = e => {
-		this.state.userAnswers[e.target.dataset.category]++;
+		const selectedId = e.target.id
+		const selectedImage = this.state.survey[this.state.currentIndex].images.find(image => image.id === selectedId);
+		selectedImage.selected = !selectedImage.selected;
+		selectedImage.selected ? this.state.userAnswers[selectedImage.style]++ : this.state.userAnswers[selectedImage.style]--;
+		this.setState({ ...this.state });
+		// If a  user has no answers, they cannot complete the survey
 	};
 
 	navigateSurvey = direction => {
@@ -237,7 +271,17 @@ class StyleSurvey extends Component {
   }
 
 	completeSurvey = () => {
-		console.log(this.state.userAnswers);
+		const userAnswerCount = Object.keys(this.state.userAnswers).reduce((totalCount, category) => {
+			return this.state.userAnswers[category] + totalCount;
+		}, 0)
+		if (!userAnswerCount) {
+			this.props.messageShow('You must select at least one answer before completing to survey');
+			setTimeout(() => {
+				this.props.messageHide();
+			}, 5000);
+		} else {
+			console.log(this.state.userAnswers);
+		}
 	};
 
 	render() {
@@ -309,4 +353,7 @@ class StyleSurvey extends Component {
 	}
 }
 
-export default StyleSurvey;
+export default withRouter(connect(null, {
+  messageShow,
+  messageHide
+})(StyleSurvey));
