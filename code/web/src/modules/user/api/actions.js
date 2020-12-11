@@ -47,7 +47,6 @@ export function login(userCredentials, isLoading = true) {
         } else if (response.data.data.userLogin.token !== '') {
           const token = response.data.data.userLogin.token
           const user = response.data.data.userLogin.user
-
           dispatch(setUser(token, user))
           //change the state to true 
           loginSetUserLocalStorageAndCookie(token, user) 

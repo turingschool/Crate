@@ -62,10 +62,10 @@ const crateInitialState = {
 export const crate = (state = crateInitialState, action) => {
   switch (action.type) {
     case CRATES_GET_REQUEST:
-      return {
-        ...state,
-        isLoading: action.isLoading,
-        error: null
+    return {
+      ...state,
+      isLoading: action.isLoading,
+      error: null
       }
 
     case CRATES_GET_RESPONSE:
