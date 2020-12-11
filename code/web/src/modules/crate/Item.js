@@ -83,7 +83,7 @@ class Item extends PureComponent {
 
           <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
             
-            {/* <Link to={isSurveyCompleted ? userRoutes.subscriptions.path : userRoutes.survey.path}> */}
+            <Link to={isSurveyCompleted ? userRoutes.subscriptions.path : userRoutes.survey.path}>
 
               <Button
                 theme="primary"
@@ -93,7 +93,7 @@ class Item extends PureComponent {
               >
                 <Icon size={1.2} style={{ color: white }}>add</Icon> Subscribe
               </Button>
-            {/* </Link> */}
+            </Link>
             
           
           </p>
