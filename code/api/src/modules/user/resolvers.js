@@ -10,26 +10,25 @@ import models from '../../setup/models'
 // Update
 export async function update(parentValue, { id, survey, style }, { auth }) {
   var user = models.User.findOne({ where: { id } })
-  var newStyle = 'null'
 
-  const vals = Object.values(style);
+  const vals = Object.values(survey);
   const styleChoice = Math.max(...vals);
   const max = Math.max(...vals);
-  const key = Object.keys(styles)[Object.values(styles).indexOf(styleChoice)];
+  const key = Object.keys(survey)[Object.values(survey).indexOf(styleChoice)];
 
   if (key == 'athletic') {
-  newStyle = 'athletic'
+  user.style = 'athletic'
   } else if (key == 'businessAttire') {
-  newStyle = 'businessAttire'
+  user.style = 'businessAttire'
   } else {
-  newStyle = 'casualEverday'
+  user.style = 'casualEverday'
   }
 
   if (user) {
-    return await user.update(
+    return await models.User.update(
       {
         survey: true,
-        style: newStyle
+        style
       },
       { where: { id }}
     )
