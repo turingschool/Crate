@@ -1,26 +1,40 @@
 // Imports
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
- // 'athletic, business attire, casual everyday'
- // https://stackoverflow.com/questions/41358255/get-max-key-in-key-value-pair-in-javascript
+
 // App Imports
 import serverConfig from '../../config/server'
 import params from '../../config/params'
 import models from '../../setup/models'
 
 // Update
-export async function updateStyle(parentValue, { id, survey, style }, { auth }) {
+export async function update(parentValue, { id, survey, style }, { auth }) {
+  var user = models.User.findOne({ where: { id } })
+  var newStyle = 'null'
 
-  // style attribute update
-  if (auth.user) {
-    await models.User.update(
+  const vals = Object.values(style);
+  const styleChoice = Math.max(...vals);
+  const max = Math.max(...vals);
+  const key = Object.keys(styles)[Object.values(styles).indexOf(styleChoice)];
+
+  if (key == 'athletic') {
+  newStyle = 'athletic'
+  } else if (key == 'businessAttire') {
+  newStyle = 'businessAttire'
+  } else {
+  newStyle = 'casualEverday'
+  }
+
+  if (user) {
+    return await user.update(
       {
         survey: true,
         style: newStyle
       },
       { where: { id }}
     )
-    return await getById(parentValue, { id })
+    } else {
+      throw new Error('Operation denied.')
   }
 }
 
