@@ -29,10 +29,9 @@ describe('User Queries', () => {
     it('can update a user', async () => {
       const response = await request(server)
       .post('/graphql')
-      .send({ query: 'mutation { userUpdate(id: 2, survey: true, style: "athletic") { survey style } }'})
+      .send({ query: 'mutation { userUpdate(id: 15, survey: true, style: "athletic") { survey style } }'})
       .expect(200)
 
-       // expect(response.body.data.userSignup.name).toEqual('Stubz');
        expect(response.body.data.userSignup.style).toEqual('athletic');
      });
  })
