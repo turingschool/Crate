@@ -12,7 +12,8 @@ describe('userActions', () => {
       fakeUser = {
         name: "The User",
         email: "user@crate.com",
-        role: "USER"
+        role: "USER",
+        survey: false
       };
 
       reducer = userReducer;
@@ -130,6 +131,7 @@ describe('userActions', () => {
         "isAuthenticated": false,
         "isLoading": false,
         "isSurveyCompleted": false,
+        "style": ''
       }
       
       expect(result).toEqual(newState)
