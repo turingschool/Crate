@@ -13,17 +13,19 @@ export const SET_USER = 'AUTH/SET_USER'
 export const LOGOUT = 'AUTH/LOGOUT'
 export const ASSIGN_STYLE = 'ASSIGN_STYLE'
 
+// Query/mutation requests that FE can make to the BE API
+// operation for each action corresponds to the names in API resolver
 // Actions
 
 // Set a user after login or using localStorage token
-export function setUser(token, user) {
+export function setUser(token, user, survey) {
   if (token) {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   } else {
     delete axios.defaults.headers.common['Authorization'];
   }
 
-  return { type: SET_USER, user }
+  return { type: SET_USER, user, survey }
 }
 
 // Login a user using credentials
@@ -37,7 +39,7 @@ export function login(userCredentials, isLoading = true) {
     return axios.post(routeApi, query({
       operation: 'userLogin',
       variables: userCredentials,
-      fields: ['user {name, email, role}', 'token']
+      fields: ['user {id, name, email, role, survey}', 'token']
     }))
       .then(response => {
         let error = ''
@@ -47,9 +49,9 @@ export function login(userCredentials, isLoading = true) {
         } else if (response.data.data.userLogin.token !== '') {
           const token = response.data.data.userLogin.token
           const user = response.data.data.userLogin.user
-          dispatch(setUser(token, user))
+          dispatch(setUser(token, user, user.survey))
           //change the state to true 
-          loginSetUserLocalStorageAndCookie(token, user) 
+          loginSetUserLocalStorageAndCookie(token, user)
         }
 
         dispatch({
@@ -84,6 +86,29 @@ export function register(userDetails) {
       variables: userDetails,
       fields: ['id', 'name', 'email']
     }))
+  }
+}
+
+export function assignUserStyle(userDetails) {
+  return dispatch => {
+    dispatch({
+      type: LOGIN_REQUEST,
+      userDetails
+    })
+
+  return axios.post(routeApi, mutation({
+    operation: 'userUpdate',
+    variables: userDetails,
+    fields: ['id', 'survey', 'style']
+  }))
+    .then(response => {
+      let error = ''
+      // handle response here
+    })
+    .catch(error => {
+      console.log(error.message);
+      console.log('error in user details');
+    })
   }
 }
 

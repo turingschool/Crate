@@ -7,6 +7,28 @@ import serverConfig from '../../config/server'
 import params from '../../config/params'
 import models from '../../setup/models'
 
+// Update
+export async function update(parentValue, { id, survey, style }, { auth }) {
+  style = JSON.parse(style);
+  var user = models.User.findOne({ where: { id } })
+
+  const vals = Object.values(style);
+  const styleChoice = Math.max(...vals);
+  const key = Object.keys(style)[Object.values(style).indexOf(styleChoice)];
+
+  if (user) {
+    return await models.User.update(
+      {
+        survey: survey,
+        style: key
+      },
+      { where: { id }}
+    )
+    } else {
+      throw new Error('Operation denied.')
+  }
+}
+
 // Create
 export async function create(parentValue, { name, email, password }) {
   // Users exists with same email check
