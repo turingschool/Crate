@@ -7,6 +7,36 @@ import serverConfig from '../../config/server'
 import params from '../../config/params'
 import models from '../../setup/models'
 
+// Update
+export async function update(parentValue, { id, survey, style }, { auth }) {
+  var user = models.User.findOne({ where: { id } })
+
+  const vals = Object.values(survey);
+  const styleChoice = Math.max(...vals);
+  // const max = Math.max(...vals);
+  const key = Object.keys(survey)[Object.values(survey).indexOf(styleChoice)];
+
+  if (key == 'athletic') {
+  user.style = 'athletic'
+  } else if (key == 'businessAttire') {
+  user.style = 'businessAttire'
+  } else {
+  user.style = 'casualEverday'
+  }
+
+  if (user) {
+    return await models.User.update(
+      {
+        survey: true,
+        style
+      },
+      { where: { id }}
+    )
+    } else {
+      throw new Error('Operation denied.')
+  }
+}
+
 // Create
 export async function create(parentValue, { name, email, password }) {
   // Users exists with same email check
