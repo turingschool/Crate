@@ -9,6 +9,7 @@ import { level1, glowShadow } from '../../ui/common/shadows';
 import { messageShow, messageHide } from '../common/api/actions'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { assignUserStyle } from '../user/api/actions'
 
 //App Imports
 import Grid from '../../ui/grid/Grid';
@@ -155,8 +156,8 @@ class StyleSurvey extends Component {
 						data-testid={`${image.id}-image`}
 						key={i}
 						data-category={image.style}
-						width={100}
-           				height={250}
+						width={'100%'}
+						height={250}
 						image={image.src}
 						style={{ boxShadow: image.selected ? glowShadow : level1, backgroundSize: 'cover' }}
 					/>
@@ -187,7 +188,6 @@ class StyleSurvey extends Component {
 		selectedImage.selected = !selectedImage.selected;
 		selectedImage.selected ? this.state.userAnswers[selectedImage.style]++ : this.state.userAnswers[selectedImage.style]--;
 		this.setState({ ...this.state });
-		// If a  user has no answers, they cannot complete the survey
 	};
 
 	navigateSurvey = direction => {
@@ -218,7 +218,11 @@ class StyleSurvey extends Component {
 				this.props.messageHide();
 			}, 5000);
 		} else {
-			console.log(this.state.userAnswers);
+			this.props.assignUserStyle({
+				id: this.props.user.details.id,
+				survey: true,
+				style: JSON.stringify(this.state.userAnswers)
+			})
 		}
 	};
 
@@ -229,7 +233,7 @@ class StyleSurvey extends Component {
 					<title>Style Survey -Crates</title>
 				</Helmet>
 
-				<Grid   alignCenter={true} style={{ backgroundColor: grey }}>
+				<Grid alignCenter={true} style={{ backgroundColor: grey }}>
 					<GridCell style={{ padding: '2em', textAlign: 'center' }}>
 						<H5>Let's find out your perfect Style.</H5>
 						<p style={{ marginTop: '1em', color: grey2 }}>
@@ -291,7 +295,14 @@ class StyleSurvey extends Component {
 	}
 }
 
-export default withRouter(connect(null, {
+function styleSurveyState(state) {
+  return {
+    user: state.user
+  }
+}
+
+export default withRouter(connect(styleSurveyState, {
   messageShow,
-  messageHide
+	messageHide,
+	assignUserStyle
 })(StyleSurvey));

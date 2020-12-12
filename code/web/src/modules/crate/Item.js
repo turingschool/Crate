@@ -29,10 +29,6 @@ class Item extends PureComponent {
   }
 
   onClickSubscribe = (crateId) => {
-
-    // this.props.user.isSurveyCompleted === false ? 
-    //   this.props.history.push(userRoutes.survey.path): something different
-
     this.setState({
       isLoading: true
     })
@@ -45,10 +41,6 @@ class Item extends PureComponent {
           this.props.messageShow(response.data.errors[0].message)
         } else {
           this.props.messageShow('Subscribed successfully.')
-
-          // this.props.history.push(userRoutes.subscriptions.path)
-          // console.log(userRoutes.subscriptions.path)
-
         }
       })
       .catch(error => {
