@@ -11,8 +11,6 @@ export const userInitialState = {
   isSurveyCompleted: false
 }
 
-// isSurveyCompleted flag does not exist anymore after a page refresh, no idea why???
-
 // State
 export default (state = userInitialState, action) => {
   switch (action.type) {
@@ -23,7 +21,7 @@ export default (state = userInitialState, action) => {
         id: action.id,
         survey: action.survey,
         style: action.style,
-        isSurveyCompleted: true // this is not setting true either???
+        isSurveyCompleted: true
       }
 
     case SET_USER:
@@ -31,7 +29,7 @@ export default (state = userInitialState, action) => {
         ...state,
         isAuthenticated: !isEmpty(action.user),
         details: action.user,
-        isSurveyCompleted: action.survey
+        isSurveyCompleted: action.user.survey
       }
 
     case LOGIN_REQUEST:
@@ -55,7 +53,8 @@ export default (state = userInitialState, action) => {
         isLoading: false,
         isAuthenticated: false,
         details: null,
-        isSurveyCompleted: false
+        isSurveyCompleted: false,
+        style: ''
       }
 
     default:

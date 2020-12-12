@@ -9,6 +9,7 @@ import userEvent from '@testing-library/user-event';
 //UI imports
 import StyleSurvey from './StyleSurvey'
 import Item from '../subscription/Item';
+import styleSurveyData from './StyleSurveyData'
 
 describe('StyleSurvey component', () => {
 
@@ -33,6 +34,12 @@ describe('StyleSurvey component', () => {
 			currentIndex: 0,
             survey: 'athletic'
         }
+
+        styleSurveyData.map(surveyData => {
+            return surveyData.images.map(image => {
+                return image.selected = false;
+            })
+        })
     })
 
     it('should render component without chrashin by displaying the appropiate banner', () =>{
@@ -103,7 +110,6 @@ describe('StyleSurvey component', () => {
          userEvent.click(buttonOne)
          
          expect(buttonOne).toHaveTextContent('Unselect this style')
-
     })
 
     it('should be able to select more than one option', () => {
@@ -128,7 +134,7 @@ describe('StyleSurvey component', () => {
 
         expect(buttonOne).toBeInTheDocument()
         expect(buttonTwo).toBeInTheDocument()
-
+            
         expect(buttonOne).toHaveTextContent('Select this style')
         expect(buttonTwo).toHaveTextContent('Select this style')
          

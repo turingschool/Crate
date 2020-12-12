@@ -10,20 +10,25 @@ import models from '../../setup/models'
 // Update
 export async function update(parentValue, { id, survey, style }, { auth }) {
   style = JSON.parse(style);
-  var user = models.User.findOne({ where: { id } })
+  var user = await models.User.findOne({ where: { id } })
 
   const vals = Object.values(style);
   const styleChoice = Math.max(...vals);
   const key = Object.keys(style)[Object.values(style).indexOf(styleChoice)];
 
   if (user) {
-    return await models.User.update(
+    await models.User.update(
       {
         survey: survey,
         style: key
       },
-      { where: { id }}
-    )
+      { where: { id }},
+      )
+    return {
+      id: id,
+      survey: survey,
+      style: key
+    }
     } else {
       throw new Error('Operation denied.')
   }

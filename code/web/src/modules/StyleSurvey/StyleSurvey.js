@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 //UI Imports
-import { H5, H6 } from '../../ui/typography';
+import { H1, H5, H6 } from '../../ui/typography';
 import { grey, grey2 } from '../../ui/common/colors';
 import { Helmet } from 'react-helmet';
 import { textLevel1 } from '../../ui/common/shadows';
 import { level1, glowShadow } from '../../ui/common/shadows';
 import { messageShow, messageHide } from '../common/api/actions'
-import { withRouter } from 'react-router-dom'
+import userRoutes from '../../setup/routes/user'
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { assignUserStyle } from '../user/api/actions'
 
@@ -16,6 +18,7 @@ import Grid from '../../ui/grid/Grid';
 import { GridCell } from '../../ui/grid';
 import ImageTile from '../../ui/image/Tile';
 import Button from '../../ui/button';
+import surveyData from './StyleSurveyData'
 class StyleSurvey extends Component {
 	constructor(props) {
 		super(props);
@@ -28,112 +31,7 @@ class StyleSurvey extends Component {
 				'casual everyday': 0,
 			},
 			currentIndex: 0,
-			survey: [
-				{
-					category: 'Tops',
-					images: [
-						{
-							id: 'athletic-top',
-							src:
-								'https://upload.wikimedia.org/wikipedia/commons/2/24/Blue_Tshirt.jpg',
-							style: 'athletic',
-							selected: false,
-						},
-						{
-							id: 'business-top',
-							src:
-								'https://www.kustomkit.com/colours/1200/KK710lightblue_front.jpg',
-							style: 'business attire',
-							selected: false,
-						},
-						{
-							id: 'casual-top',
-							src:
-								'https://i.pinimg.com/originals/da/88/22/da8822839f9f281cf5b274df48c7b90f.jpg',
-							style: 'casual everyday',
-							selected: false,
-						},
-					],
-				},
-				{
-					category: 'Bottoms',
-					images: [
-						{
-							id: 'athletic-bottom',
-							src:
-								'http://www.iaeiu.com/wp-content/uploads/2018/05/crysp-jeans-pants-black-mens-crysp-fb-black-white-track-pants-black.jpg',
-							style: 'athletic',
-							selected: false,
-						},
-						{
-							id: 'business-bottom',
-							src:
-								'https://content.backcountry.com/images/items/900/NKE/NKE012B/KH.jpg',
-							style: 'business attire',
-							selected: false,
-						},
-						{
-							id: 'casual-bottom',
-							src:
-								'https://www.kingsize.com.au/user/images/3316_1000_1000.jpg?t=1801051602',
-							style: 'casual everyday',
-							selected: false,
-						},
-					],
-				},
-				{
-					category: 'Shoes',
-					images: [
-						{
-							id: 'athletic-shoes',
-							src:
-								'https://www.careyfashion.com/fashion/wp-content/uploads/2016/12/athletic-shoes-3.jpg',
-							style: 'athletic',
-							selected: false,
-						},
-						{
-							id: 'business-shoes',
-							src:
-								'https://ae01.alicdn.com/kf/HTB1r5yEKVXXXXX5aXXXq6xXFXXX6/2016-New-Men-Dress-Formal-Oxfords-Leather-Shoes-Business-Casual-Shoes-Dress-Fashion-Luxury-Leather-Flat.jpg',
-							style: 'business attire',
-							selected: false,
-						},
-						{
-							id: 'casual-shoes',
-							src:
-								'https://stevie-wonder.com/wp-content/uploads/2018/03/Mens-Comfort-Polar-Fleece-Slip-On-Slippers-Color-Block-Memory-Foam-House-Loafers-Shoes-by-UltraIdeas-e1520173456434.jpg',
-							style: 'casual everyday',
-							selected: false,
-						},
-					],
-				},
-				{
-					category: 'Accessories',
-					images: [
-						{
-							id: 'athletic-accessory',
-							src:
-								'https://image.sportsmansguide.com/adimgs/l/2/235435_ts.jpg',
-							style: 'athletic',
-							selected: false,
-						},
-						{
-							id: 'business-accessory',
-							src:
-								'http://www.clker.com/cliparts/7/b/0/3/12828581742005620564watch.jpg',
-							style: 'business attire',
-							selected: false,
-						},
-						{
-							id: 'casual-accessory',
-							src:
-								'https://i.pinimg.com/originals/f1/39/a2/f139a2591edc7dc7f66e4b5dff7a431a.png',
-							style: 'casual everyday',
-							selected: false,
-						},
-					],
-				},
-			],
+			survey: surveyData
 		};
 	}
 
@@ -156,7 +54,7 @@ class StyleSurvey extends Component {
 						data-testid={`${image.id}-image`}
 						key={i}
 						data-category={image.style}
-						width={'100%'}
+						width={300}
 						height={250}
 						image={image.src}
 						style={{ boxShadow: image.selected ? glowShadow : level1, backgroundSize: 'cover' }}
@@ -280,12 +178,32 @@ class StyleSurvey extends Component {
 					{this.state.currentIndex === this.state.survey.length - 1 && (
 						<Grid alignCenter={true}>
 							<GridCell justifyCenter style={{ display: 'inline-flex' }}>
-								<Button
-									style={{ margin: '1.5em 1.5em 1.5em 2.5em', height: '37px' }}
-									theme='secondary'
-									onClick={() => this.completeSurvey()}>
-									Submit
-								</Button>
+								{!this.props.user.isSurveyCompleted ?
+									<Button
+										style={{ margin: '1.5em 1.5em 1.5em 2.5em', height: '37px' }}
+										theme='secondary'
+										onClick={() => this.completeSurvey()}>
+										Submit
+									</Button> :
+									<Grid style={{ flexDirection: 'column' }} alignCenter justifyCenter>
+										<H1
+											font='primary'
+											style={{
+												textShadow: textLevel1,
+												marginTop: '1em',
+												fontSize: '2em',
+												textAlign: 'center'
+											}}>Your Style: {this.props.user.style}</H1>
+										<Link to={userRoutes.subscriptions.path}>
+										<Button
+											theme='secondary'
+											style={{ margin: '1.5em 1.5em 1.5em 2.5em', height: '37px' }}
+										>
+											See My Subscriptions
+										</Button>
+										</Link>
+									</Grid>
+								}
 							</GridCell>
 						</Grid>
 					)}
@@ -293,6 +211,13 @@ class StyleSurvey extends Component {
 			</>
 		);
 	}
+}
+
+StyleSurvey.propTypes = {
+	assignUserStyle: PropTypes.func.isRequired,
+	messageShow: PropTypes.func.isRequired,
+  messageHide: PropTypes.func.isRequired,
+	user: PropTypes.object
 }
 
 function styleSurveyState(state) {
