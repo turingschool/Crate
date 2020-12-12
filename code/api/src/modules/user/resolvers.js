@@ -13,7 +13,7 @@ export async function update(parentValue, { id, survey, style }, { auth }) {
 
   const vals = Object.values(survey);
   const styleChoice = Math.max(...vals);
-  const max = Math.max(...vals);
+  // const max = Math.max(...vals);
   const key = Object.keys(survey)[Object.values(survey).indexOf(styleChoice)];
 
   if (key == 'athletic') {
