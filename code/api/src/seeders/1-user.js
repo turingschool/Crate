@@ -30,10 +30,7 @@ module.exports = {
         bio: 'I am Tom from MySpace and I\'ve got style',
         shippingAddress: JSON.stringify(jsonAddress),
         createdAt: new Date(),
-        updatedAt: new Date(),
-        profilePic: 'https://pbs.twimg.com/profile_images/1237550450/mstom_400x400.jpg',
-        description: "I am Tom from MySpace and I got style.",
-        shippingAddress: '1234 Cool Guy Way, Denver CO, 80216'
+        updatedAt: new Date()
       }
     ])
   },
