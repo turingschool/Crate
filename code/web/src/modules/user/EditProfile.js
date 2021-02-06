@@ -40,10 +40,10 @@ class EditProfile extends Component {
   render() {
     return (
       <Grid alignCenter={true} style={{ padding: "1em" }}>
-        <GridCell style={{ textAlign: "center" }}>
+        <GridCell style={{ textAlign: "center", margin: '2em' }}>
           <form onSubmit={this.onSubmit}>
             <h2>Edit your profile</h2>
-            <GridCell style={{ textAlign: "left" }}>
+            <GridCell style={{ textAlign: "left", margin: '2em' }}>
               <label htmlFor="image">Profile Picture</label>
               <Textarea
                 label="picture"
@@ -56,7 +56,7 @@ class EditProfile extends Component {
                 onChange={this.updateInput}
               />
             </GridCell>
-            <GridCell style={{ textAlign: "left" }}>
+            <GridCell style={{ textAlign: "left", margin: '2em' }}>
               <label htmlFor="name">Your Name</label>
               <Input
                 label="Name"
@@ -70,7 +70,7 @@ class EditProfile extends Component {
                 onChange={this.updateInput}
               />
             </GridCell>
-            <GridCell style={{ textAlign: "left" }}>
+            <GridCell style={{ textAlign: "left", margin: '2em' }}>
               <label htmlFor="email">Your Email</label>
               <Input
                 type="text"
@@ -83,7 +83,7 @@ class EditProfile extends Component {
                 onChange={this.updateInput}
               />
             </GridCell>
-            <GridCell style={{ textAlign: "left" }}>
+            <GridCell style={{ textAlign: "left", margin: '2em' }}>
               <label htmlFor="bio">Your Bio</label>
               <Textarea
                 type="text"
@@ -95,7 +95,7 @@ class EditProfile extends Component {
                 onChange={this.updateInput}
               />
             </GridCell>
-            <GridCell style={{ textAlign: "left" }}>
+            <GridCell style={{ textAlign: "left", margin: '2em' }}>
               <label htmlFor="street1">Your Street</label>
               <Input
                 type="text"
@@ -108,7 +108,7 @@ class EditProfile extends Component {
                 onChange={this.updateInput}
               />
             </GridCell>
-            <GridCell style={{ textAlign: "left" }}>
+            <GridCell style={{ textAlign: "left", margin: '2em' }}>
               <label htmlFor="street2">Address Line 2</label>
               <Input
                 type="text"
@@ -120,7 +120,7 @@ class EditProfile extends Component {
                 onChange={this.updateInput}
               />
             </GridCell>
-            <GridCell style={{ textAlign: "left" }}>
+            <GridCell style={{ textAlign: "left", margin: '2em' }}>
               <label htmlFor="city">City</label>
               <Input
                 type="text"
@@ -133,7 +133,7 @@ class EditProfile extends Component {
                 onChange={this.updateInput}
               />
             </GridCell>
-            <GridCell style={{ textAlign: "left" }}>
+            <GridCell style={{ textAlign: "left", margin: '2em' }}>
               <label htmlFor="state">State</label>
               <Select
                 type="text"
@@ -196,7 +196,7 @@ class EditProfile extends Component {
                 <option value="WY">Wyoming</option>
               </Select>
             </GridCell>
-            <GridCell style={{ textAlign: "left" }}>
+            <GridCell style={{ textAlign: "left", margin: '2em' }}>
               <label htmlFor="zip">Zip Code</label>
               <Input
                 type="text"
