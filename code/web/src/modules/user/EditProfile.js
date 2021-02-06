@@ -18,7 +18,7 @@ import { logout } from "./api/actions";
 class EditProfile extends Component {
   constructor(props) {
     super(props)
-    this.state={
+    this.state = {
       image: '',
       name: '',
       email: '',
@@ -62,7 +62,8 @@ class EditProfile extends Component {
       name,
       email,
       bio,
-      shippingAddress
+      shippingAddress,
+      role: "USER"
     }
   }
 
