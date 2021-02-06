@@ -13,7 +13,6 @@ import Select from "../../ui/input/Select"
 
 //App Imports
 import userRoutes from "../../setup/routes/user";
-import { logout } from "./api/actions";
 
 class EditProfile extends Component {
   constructor(props) {
@@ -47,8 +46,8 @@ class EditProfile extends Component {
   }
 
   handleEditProfile = (event) => {
-    const { street1, street2, city, state, zip, image, name, email, bio} = this.state
     event.preventDefault()
+    const { street1, street2, city, state, zip, image, name, email, bio} = this.state
     const shippingAddress = {
       street1,
       street2,
@@ -65,6 +64,7 @@ class EditProfile extends Component {
       shippingAddress,
       role: "USER"
     }
+    this.props.history.push(userRoutes.profile.path)
   }
 
   render() {
@@ -239,12 +239,7 @@ class EditProfile extends Component {
                 onChange={this.updateInput}
               />
             </GridCell>
-            <Link 
-              to={userRoutes.profile.path}
-              onClick={this.handleEditProfile}
-            >
-              <Button theme="primary">Save</Button>
-            </Link>
+              <Button theme="primary" onClick={this.handleEditProfile}>Save</Button>
           </form>
         </GridCell>
       </Grid>
