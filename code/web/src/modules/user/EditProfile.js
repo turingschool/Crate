@@ -209,7 +209,9 @@ class EditProfile extends Component {
                 onChange={this.updateInput}
               />
             </GridCell>
-            <Button theme="primary">Save</Button>
+            <Link to={userRoutes.profile.path}>
+              <Button theme="primary">Save</Button>
+            </Link>
           </form>
         </GridCell>
       </Grid>
