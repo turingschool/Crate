@@ -13,6 +13,7 @@ import Select from "../../ui/input/Select"
 
 //App Imports
 import userRoutes from "../../setup/routes/user";
+import { editProfile } from "./api/actions"
 
 class EditProfile extends Component {
   constructor(props) {
@@ -64,7 +65,8 @@ class EditProfile extends Component {
       shippingAddress,
       role: "USER"
     }
-    this.props.history.push(userRoutes.profile.path)
+    this.props.editProfile(updatedProfile)
+    // this.props.history.push(userRoutes.profile.path)
   }
 
   render() {
@@ -247,11 +249,11 @@ class EditProfile extends Component {
     }
 };
 
-function profileState(state) {
+function editProfileState(state) {
   return {
     user: state.user,
   };
 }
 
 // export default EditProfile
-export default connect(profileState)(EditProfile);
+export default connect(editProfileState, {editProfile})(EditProfile);
