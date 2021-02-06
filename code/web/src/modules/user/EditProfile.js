@@ -37,6 +37,28 @@ class EditProfile extends Component {
     })
   }
 
+  handleEditProfile = (event) => {
+    const { street1, street2, city, state, zip, image, name, email, bio} = this.state
+    event.preventDefault()
+    const shippingAddress = {
+      street1,
+      street2,
+      city,
+      state,
+      zip
+    }
+
+    const updatedProfile = {
+      image,
+      name,
+      email,
+      bio,
+      shippingAddress
+    }
+
+    console.log(updatedProfile)
+  }
+
   render() {
     return (
       <Grid alignCenter={true} style={{ padding: "1em" }}>
@@ -51,7 +73,7 @@ class EditProfile extends Component {
                 fullWidth={true}
                 placeholder="Image URL"
                 name="image"
-                autocomplete="off"
+                autoComplete="off"
                 value={this.state.image}
                 onChange={this.updateInput}
               />
@@ -65,7 +87,7 @@ class EditProfile extends Component {
                 required="required"
                 placeholder="Full Name"
                 name="name"
-                autocomplete="off"
+                autoComplete="off"
                 value={this.state.name}
                 onChange={this.updateInput}
               />
@@ -78,7 +100,7 @@ class EditProfile extends Component {
                 required="required"
                 placeholder="Email Address"
                 name="email"
-                autocomplete="off"
+                autoComplete="off"
                 value={this.state.email}
                 onChange={this.updateInput}
               />
@@ -90,7 +112,7 @@ class EditProfile extends Component {
                 fullWidth={true}
                 placeholder="Describe Yourself"
                 name="bio"
-                autocomplete="off"
+                autoComplete="off"
                 value={this.state.bio}
                 onChange={this.updateInput}
               />
@@ -101,9 +123,9 @@ class EditProfile extends Component {
                 type="text"
                 fullWidth={true}
                 required="required"
-                placeholder=""
-                name="Street Address"
-                autocomplete="off"
+                placeholder="Your Street"
+                name="street1"
+                autoComplete="off"
                 value={this.state.street1}
                 onChange={this.updateInput}
               />
@@ -115,7 +137,7 @@ class EditProfile extends Component {
                 fullWidth={true}
                 placeholder="Optional"
                 name="street2"
-                autocomplete="off"
+                autoComplete="off"
                 value={this.state.street2}
                 onChange={this.updateInput}
               />
@@ -128,7 +150,7 @@ class EditProfile extends Component {
                 required="required"
                 placeholder="Your City"
                 name="city"
-                autocomplete="off"
+                autoComplete="off"
                 value={this.state.city}
                 onChange={this.updateInput}
               />
@@ -204,12 +226,15 @@ class EditProfile extends Component {
                 required="required"
                 placeholder="Your Zip"
                 name="zip"
-                autocomplete="off"
+                autoComplete="off"
                 value={this.state.zip}
                 onChange={this.updateInput}
               />
             </GridCell>
-            <Link to={userRoutes.profile.path}>
+            <Link 
+              to={userRoutes.profile.path}
+              onClick={this.handleEditProfile}
+            >
               <Button theme="primary">Save</Button>
             </Link>
           </form>
