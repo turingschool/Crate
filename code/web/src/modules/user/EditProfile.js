@@ -42,7 +42,7 @@ class EditProfile extends Component {
       <Grid alignCenter={true} style={{ padding: "1em" }}>
         <GridCell style={{ textAlign: "center", margin: '2em' }}>
           <form onSubmit={this.onSubmit}>
-            <h2>Edit your profile</h2>
+            <h2>Edit your Bio</h2>
             <GridCell style={{ textAlign: "left", margin: '2em' }}>
               <label htmlFor="image">Profile Picture</label>
               <Textarea
