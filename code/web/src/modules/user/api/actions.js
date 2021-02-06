@@ -123,9 +123,7 @@ export function editProfile(updatedProfile) {
   return dispatch => {
     dispatch({
       type: EDIT_PROFILE,
-      name: updatedProfile.name,
-      email: updatedProfile.email,
-      image: updatedProfile.image
+      updatedProfile
     })
   }
 } 

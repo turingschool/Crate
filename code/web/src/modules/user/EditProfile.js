@@ -66,7 +66,7 @@ class EditProfile extends Component {
       role: "USER"
     }
     this.props.editProfile(updatedProfile)
-    // this.props.history.push(userRoutes.profile.path)
+    this.props.history.push(userRoutes.profile.path)
   }
 
   render() {

@@ -46,11 +46,7 @@ export default (state = userInitialState, action) => {
     case EDIT_PROFILE:
       return {
         ...state,
-        details: {
-          name: action.name,
-          email: action.email,
-          image: action.image
-        }
+        details: action.updatedProfile
       }
 
     default:
