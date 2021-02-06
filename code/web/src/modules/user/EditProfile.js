@@ -32,9 +32,11 @@ class EditProfile extends Component {
   }
 
   componentDidMount() {
+    const { shippingAddress, image, name, email, bio} = this.props.user.details
+    // const { street1, street2, city, state, zip } = shippingAddress
     this.setState({
-      name: this.props.user.details.name,
-      email: this.props.user.details.email,
+      name,
+      email
     })
   }
 
