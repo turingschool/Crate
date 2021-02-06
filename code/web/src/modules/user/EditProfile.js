@@ -16,8 +16,8 @@ import userRoutes from "../../setup/routes/user";
 import { logout } from "./api/actions";
 
 class EditProfile extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state={
       image: '',
       name: '',
@@ -29,6 +29,13 @@ class EditProfile extends Component {
       state: '',
       zip: ''
     } 
+  }
+
+  componentDidMount() {
+    this.setState({
+      name: this.props.user.details.name,
+      email: this.props.user.details.email,
+    })
   }
 
   updateInput = (event) => {
@@ -55,15 +62,13 @@ class EditProfile extends Component {
       bio,
       shippingAddress
     }
-
-    console.log(updatedProfile)
   }
 
   render() {
     return (
       <Grid alignCenter={true} style={{ padding: "1em" }}>
         <GridCell style={{ textAlign: "center", margin: '2em' }}>
-          <form onSubmit={this.onSubmit}>
+          <form>
             <h2>Edit your Bio</h2>
             <GridCell style={{ textAlign: "left", margin: '2em' }}>
               <label htmlFor="image">Profile Picture</label>
@@ -250,5 +255,5 @@ function profileState(state) {
   };
 }
 
-export default EditProfile
-// export default connect(profileState, { logout })(EditProfile);
+// export default EditProfile
+export default connect(profileState)(EditProfile);
