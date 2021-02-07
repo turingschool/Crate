@@ -11,6 +11,7 @@ import { H3, H4 } from '../../ui/typography'
 import Button from '../../ui/button'
 import { grey, grey2 } from '../../ui/common/colors'
 
+
 // App Imports
 import userRoutes from '../../setup/routes/user'
 import { logout } from './api/actions'
@@ -25,26 +26,44 @@ const Profile = (props) => (
 
     {/* Top title bar */}
     <Grid style={{ backgroundColor: grey }}>
-      <GridCell style={{ padding: '2em', textAlign: 'center' }}>
+      <GridCell style={{ padding: "2em", textAlign: "center" }}>
         <H3 font="secondary">My profile</H3>
       </GridCell>
     </Grid>
 
     <Grid>
-      <GridCell style={{ padding: '2em', textAlign: 'center' }}>
-        <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
+      <GridCell style={{ padding: "2em", textAlign: "center" }}>
+        <img
+          src={
+            "https://icon-library.com/images/default-user-icon/default-user-icon-28.jpg"
+          }
+          alt="user-image"
+          style={{ borderRadius: "50%", height: "300px" }}
+        />
+        <H4 style={{ marginBottom: "0.5em" }}>{props.user.details.name}</H4>
 
-        <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.email}</p>
+        <p style={{ color: grey2, marginBottom: "2em" }}>
+          {props.user.details.email}
+        </p>
+        <Link to={userRoutes.editProfile.path}>
+          <Button theme="primary" style={{ marginRight: "1em" }}>Edit Profile</Button>
+        </Link>
 
         <Link to={userRoutes.subscriptions.path}>
           <Button theme="primary">Subscriptions</Button>
         </Link>
 
-        <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button>
+        <Button
+          theme="secondary"
+          onClick={props.logout}
+          style={{ marginLeft: "1em" }}
+        >
+          Logout
+        </Button>
       </GridCell>
     </Grid>
   </div>
-)
+);
 
 // Component Properties
 Profile.propTypes = {
