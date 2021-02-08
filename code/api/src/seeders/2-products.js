@@ -1,3 +1,5 @@
+//add product seeds products #1
+
 'use strict';
 
 const params = require('../config/params');

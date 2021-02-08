@@ -1,3 +1,4 @@
+// add new column fields style, gender, subtype, survey by migration
 'use strict'
 
 // Product

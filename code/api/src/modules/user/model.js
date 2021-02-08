@@ -1,5 +1,5 @@
 'use strict'
-
+// add new column fields style_preference by migration
 // User
 module.exports = function(sequelize, DataTypes) {
   let User = sequelize.define('users', {

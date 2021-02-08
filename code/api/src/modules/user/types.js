@@ -1,3 +1,4 @@
+// add new column fields style_preference
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
