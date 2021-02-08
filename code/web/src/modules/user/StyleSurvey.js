@@ -20,11 +20,13 @@ class StyleSurvey extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      bohemian: 0,
-      sporty: 0,
-      preppy: 0,
-      punk: 0,
       questionNum: 1,
+      shirt: null,
+      pants: null,
+      shoes: null,
+      dressOrVest: null,
+      hat: null,
+      accessories: null,
       products: []
     }
   }
@@ -55,21 +57,30 @@ class StyleSurvey extends Component {
 
   createProductInputs = () => {
     const productsOnDisplay = this.selectProductsOnDisplay()
-    console.log(productsOnDisplay)
-    return productsOnDisplay.map(product => {
-      return(
-        <label key={product.style}>
-          <input
-            type='radio'
-            name='survey-product'
-          />
-          <img 
-            src={product.imgUrl} 
-            alt={product.description}
-            style={{width: '20vw'}} 
-          />
-        </label>
-      )
+    if (productsOnDisplay) {
+      return productsOnDisplay.map(product => {
+        return(
+          <label key={product.style}>
+            <input
+              type='radio'
+              name={product.category}
+              value={product.style}
+              onChange={this.handleRadioClick}
+            />
+            <img 
+              src={product.imgUrl} 
+              alt={product.description}
+              style={{width: '20vw'}} 
+            />
+          </label>
+        )
+      })
+    }
+  }
+
+  handleRadioClick = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
     })
   }
 
@@ -83,6 +94,10 @@ class StyleSurvey extends Component {
         questionNum: this.state.questionNum + 1
       })
     }
+  }
+
+  returnDominantStyle = () => {
+    
   }
 
   render() {
