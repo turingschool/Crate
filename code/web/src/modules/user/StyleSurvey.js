@@ -13,6 +13,7 @@ import { grey, grey2 } from '../../ui/common/colors'
 
 // App Imports
 import userRoutes from '../../setup/routes/user'
+import { sampleSurveyData } from './SurveyProducts'
 
 class StyleSurvey extends Component {
   
@@ -23,13 +24,34 @@ class StyleSurvey extends Component {
       sporty: 0,
       preppy: 0,
       punk: 0,
-      questionNum: 1
+      questionNum: 1,
+      products: sampleSurveyData.data.data
     }
+  }
+
+  createProductInputs = () => {
+    console.log(this.state.products)
+    return this.state.products.map(product => {
+      return(
+        <label>
+          <input
+            type='radio'
+            name='survey-product'
+          />
+          {product.description}
+        </label>
+      )
+    })
   }
 
   render() {
     return(
-      <h1>Style Survey</h1>
+      <section>
+        <h1>Style Survey</h1>
+        <form>
+          {this.createProductInputs()}
+        </form>
+      </section>
     )
   }
 
