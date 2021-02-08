@@ -35,8 +35,28 @@ class StyleSurvey extends Component {
     })
   }
 
+  selectProductsOnDisplay = () => {
+    return this.state.products.filter(product => {
+      if (this.state.questionNum === 1) {
+        return product.category === 'shirt'
+      } else if (this.state.questionNum === 2) {
+        return product.category === 'pants'
+      } else if (this.state.questionNum === 3) {
+        return product.category === 'shoes'
+      } else if (this.state.questionNum === 4) {
+        return product.category === 'dress' || 'vest'
+      } else if (this.state.questionNum === 5) {
+        return product.category === 'hat'
+      } else if (this.state.questionNum === 6) {
+        return product.category === 'accessories'
+      }
+    })
+  }
+
   createProductInputs = () => {
-    return this.state.products.map(product => {
+    const productsOnDisplay = this.selectProductsOnDisplay()
+    console.log(productsOnDisplay)
+    return productsOnDisplay.map(product => {
       return(
         <label key={product.style}>
           <input
