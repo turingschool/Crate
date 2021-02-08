@@ -21,13 +21,13 @@ class StyleSurvey extends Component {
     super(props)
     this.state = {
       questionNum: 1,
+      products: [],
       shirt: null,
       pants: null,
       shoes: null,
       dressOrVest: null,
       hat: null,
-      accessories: null,
-      products: []
+      accessories: null
     }
   }
 
@@ -97,7 +97,13 @@ class StyleSurvey extends Component {
   }
 
   returnDominantStyle = () => {
-    
+    const chosenStyles = [this.state.shirt, this.state.pants, this.state.shoes, this.state.accessories, this.state.hat, this.state.dressOrVest]
+    const activeStyles = chosenStyles.filter(style => {
+      return style !== null
+    })
+    return activeStyles.sort((a, b) => {
+      return activeStyles.filter(style => style === b).length - activeStyles.filter(style => style === a).length
+    }).pop()
   }
 
   render() {
