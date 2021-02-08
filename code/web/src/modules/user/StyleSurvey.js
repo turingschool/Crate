@@ -75,13 +75,17 @@ class StyleSurvey extends Component {
           {this.createProductInputs()}
         </form>
         <div className='form-navigation'>
-          <button
+          {this.state.questionNum !== 1 && <button
             onClick={() => this.handleNavClick('decrease')}
           >
             ←
-          </button>
+          </button>}
           <p>Question {this.state.questionNum}/6</p>
-          <button>→</button>
+          {this.state.questionNum !== 6 && <button
+            onClick={() => this.handleNavClick('increase')}
+          >→</button>}
+          {this.state.questionNum === 6 && 
+          <button>SUBMIT</button>}
         </div>
       </section>
     )
