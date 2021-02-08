@@ -38,25 +38,51 @@ class StyleSurvey extends Component {
   createProductInputs = () => {
     return this.state.products.map(product => {
       return(
-        <label>
+        <label key={product.style}>
           <input
-            key={Date.now()}
             type='radio'
             name='survey-product'
           />
-          {product.description}
+          <img 
+            src={product.imgUrl} 
+            alt={product.description}
+            style={{width: '20vw'}} 
+          />
         </label>
       )
     })
   }
 
+  handleNavClick = (type) => {
+    if (type === 'decrease') {
+      this.setState({
+        questionNum: this.state.questionNum - 1
+      })
+    } else {
+      this.setState({
+        questionNum: this.state.questionNum + 1
+      })
+    }
+  }
+
   render() {
     return(
-      <section>
-        <h1>Style Survey</h1>
-        <form>
+      <section style={{marginTop: '5%'}}>
+        <H3>What's your style?</H3>
+        <form
+          style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', placeItems: 'center'}}
+        >
           {this.createProductInputs()}
         </form>
+        <div className='form-navigation'>
+          <button
+            onClick={() => this.handleNavClick('decrease')}
+          >
+            ←
+          </button>
+          <p>Question {this.state.questionNum}/6</p>
+          <button>→</button>
+        </div>
       </section>
     )
   }
