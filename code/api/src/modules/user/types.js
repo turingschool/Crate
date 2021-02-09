@@ -1,5 +1,7 @@
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
+import GraphQLJSON from 'graphql-type-json';
+import { GraphQLJSONObject } from 'graphql-type-json';
 
 // User type
 const UserType = new GraphQLObjectType({
@@ -14,9 +16,31 @@ const UserType = new GraphQLObjectType({
     role: { type: GraphQLString },
     createdAt: { type: GraphQLString },
     updatedAt: { type: GraphQLString },
-    profilePic: { type: GraphQLString },
-    description: { type: GraphQLString },
-    shippingAddress: { type: GraphQLString }
+    image: { type: GraphQLString },
+    bio: { type: GraphQLString },
+    shippingAddress: { type: GraphQLJSON },
+    street1: { type: GraphQLJSONObject },
+    street2: { type: GraphQLJSONObject },
+    city: { type: GraphQLJSONObject },
+    state: { type: GraphQLJSONObject },
+    zip: { type: GraphQLJSONObject },
+    // shippingAddress: {
+    //   street1: {
+    //     type: GraphQLString },
+    //   street2: {
+    //     type: GraphQLString
+    //   },
+    //   city: {
+    //     type: GraphQLString
+    //   },
+    //   state: {
+    //     type: GraphQLString
+    //   },
+    //   zip: {
+    //     type: GraphQLString
+    //   },
+    //   type: GraphQLString
+    // }
   })
 })
 
@@ -42,4 +66,22 @@ const UserGenderType = new GraphQLObjectType({
   })
 })
 
+const UserShippingAddressType = new GraphQLObjectType({
+  name: 'userShippingAddress',
+  description: 'User Gender Type',
+
+  fields: () => ({
+    id: { type: GraphQLInt },
+    name: { type: GraphQLString }
+  })
+})
+
 export { UserType, UserLoginType, UserGenderType }
+export default new GraphQLObjectType({
+  name: 'shippingAddress',
+
+  fields: {
+    myValue: { type: GraphQLJSON },
+    myObject: { type: GraphQLJSONObject },
+  },
+});
