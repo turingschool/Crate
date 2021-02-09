@@ -46,7 +46,7 @@ class StyleSurvey extends Component {
       } else if (this.state.questionNum === 3) {
         return product.category === 'shoes'
       } else if (this.state.questionNum === 4) {
-        return product.category === 'dress' || 'vest'
+        return product.category === 'dress' || product.category === 'vest'
       } else if (this.state.questionNum === 5) {
         return product.category === 'hat'
       } else if (this.state.questionNum === 6) {
@@ -109,25 +109,40 @@ class StyleSurvey extends Component {
   render() {
     return(
       <section style={{marginTop: '5%'}}>
-        <H3>What's your style?</H3>
+        <Helmet>
+          <title>What's your style?</title>
+        </Helmet>
+        <Grid style={{ backgroundColor: grey }}>
+          <GridCell style={{ padding: '2em', textAlign: 'center' }}>
+            <H3 font="secondary">What's your style?</H3>
+          </GridCell>
+        </Grid>
         <form
           style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', placeItems: 'center'}}
         >
           {this.createProductInputs()}
         </form>
-        <div className='form-navigation'>
-          {this.state.questionNum !== 1 && <button
-            onClick={() => this.handleNavClick('decrease')}
-          >
-            ←
-          </button>}
-          <p>Question {this.state.questionNum}/6</p>
-          {this.state.questionNum !== 6 && <button
-            onClick={() => this.handleNavClick('increase')}
-          >→</button>}
-          {this.state.questionNum === 6 && 
-          <button>SUBMIT</button>}
-        </div>
+        <Grid style={{ backgroundColor: grey }}>
+          <GridCell style={{ padding: '2em', textAlign: 'center' }}>
+            {this.state.questionNum !== 1 && <Button
+              theme='primary'
+              onClick={() => this.handleNavClick('decrease')}
+            >
+              ←
+            </Button>}
+          </GridCell>
+          <GridCell style={{ padding: '2em', textAlign: 'center' }}>
+            <p>Question {this.state.questionNum}/6</p>
+          </GridCell>
+          <GridCell style={{ padding: '2em', textAlign: 'center' }}>
+            {this.state.questionNum !== 6 && <Button
+              theme='primary'
+              onClick={() => this.handleNavClick('increase')}
+            >→</Button>}
+            {this.state.questionNum === 6 && 
+            <Button theme='primary'>SUBMIT</Button>}
+          </GridCell>
+        </Grid>
       </section>
     )
   }
