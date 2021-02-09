@@ -43,5 +43,3 @@ export const productTypes = {
   type: new GraphQLList(ProductTypesType),
   resolve: getTypes
 }
-
-//add product by style and gender query

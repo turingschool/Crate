@@ -39,4 +39,3 @@ export const userRemove = {
   resolve: remove
 }
 
-//Need Update action with user style preference

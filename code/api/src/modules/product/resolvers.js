@@ -1,5 +1,3 @@
-// add new column fields style, gender, subtype, survey
-
 // App Imports
 import params from '../../config/params'
 import models from '../../setup/models'

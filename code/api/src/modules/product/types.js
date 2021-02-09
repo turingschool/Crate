@@ -1,4 +1,3 @@
-// add new column fields style, gender, subtype, survey
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean } from 'graphql'
 

@@ -1,4 +1,3 @@
-// add new column fields style, subtype, survey Create/Update
 // Imports
 import { GraphQLString, GraphQLInt } from 'graphql'
 
