@@ -2,7 +2,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter, useHistory } from 'react-router-dom'
 
 // UI Imports
 import Card from '../../ui/card/Card'
@@ -25,6 +25,14 @@ class Item extends PureComponent {
 
     this.state = {
       isLoading: false
+    }
+  }
+
+  checkUserStyle = (crateId) => {
+    if (this.props.user.details.name) {
+      this.props.history.push(userRoutes.survey.path)
+    } else {
+      this.onClickSubscribe(crateId)
     }
   }
 
@@ -77,7 +85,7 @@ class Item extends PureComponent {
           <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
             <Button
               theme="primary"
-              onClick={this.onClickSubscribe.bind(this, id)}
+              onClick={this.checkUserStyle.bind(this, id)}
               type="button"
               disabled={ isLoading }
             >
