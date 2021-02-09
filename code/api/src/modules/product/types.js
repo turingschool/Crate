@@ -1,6 +1,6 @@
 // add new column fields style, gender, subtype, survey
 // Imports
-import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
+import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean } from 'graphql'
 
 // Product type
 const ProductType = new GraphQLObjectType({
@@ -15,8 +15,11 @@ const ProductType = new GraphQLObjectType({
     gender: { type: GraphQLInt },
     description: { type: GraphQLString },
     image: { type: GraphQLString },
+    style: { type: GraphQLString },
+    sub_type: { type: GraphQLString },
+    survey: { type: GraphQLBoolean },
     createdAt: { type: GraphQLString },
-    updatedAt: { type: GraphQLString }
+    updatedAt: { type: GraphQLString },
   })
 })
 

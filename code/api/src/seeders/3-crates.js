@@ -46,3 +46,27 @@ module.exports = {
     return queryInterface.bulkDelete('crates', null, {});
   }
 }
+
+
+
+
+{
+  name: 'Gothic pants - Black',
+  slug: 'pants-for-men-blac',
+  description: 'Black pants with chains.',
+  type: params.product.types.cloth.id,
+  gender: params.user.gender.male.id,
+  image: 'https://www.thedarkattitude.com/image/cache/products/men%20gothic%20pant/007/018-700x700.jpg',
+  createdAt: new Date(),
+  updatedAt: new Date()
+},
+{
+  name: 'Gothic pants - Black',
+  slug: 'pants-for-men-blac',
+  description: 'Black pants with chains.',
+  type: params.product.types.cloth.id,
+  gender: params.user.gender.male.id,
+  image: 'https://www.thedarkattitude.com/image/cache/products/men%20gothic%20pant/007/018-700x700.jpg',
+  createdAt: new Date(),
+  updatedAt: new Date()
+},
