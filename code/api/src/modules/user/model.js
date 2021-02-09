@@ -1,5 +1,4 @@
 'use strict'
-
 // User
 module.exports = function(sequelize, DataTypes) {
   let User = sequelize.define('users', {
@@ -13,6 +12,9 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT
     },
     role: {
+      type: DataTypes.TEXT
+    },
+    style_preference: {
       type: DataTypes.TEXT
     }
   })

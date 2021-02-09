@@ -20,6 +20,15 @@ module.exports = function(sequelize, DataTypes) {
     },
     image: {
       type: DataTypes.TEXT
+    },
+    survey: {
+      type: DataTypes.BOOLEAN
+    },
+    style: {
+      type: DataTypes.TEXT
+    },
+    sub_type: {
+      type: DataTypes.TEXT
     }
   })
 }
