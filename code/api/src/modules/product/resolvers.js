@@ -99,15 +99,6 @@ export async function getTypes() {
   return Object.values(params.product.types)
 }
 
-// Products in survey by gender
-// export async function getSurveyProducts(parentValue, { genderInt }) {
-//   return await models.Product.findAll({
-//     where: {
-//       survey: { [Op.eq]: true }
-//     }
-//   })
-// }
-
 //product for survey
 export async function getSurveyByGender(parentValue, { gender }) {
   return await models.Product.findAll({ 
