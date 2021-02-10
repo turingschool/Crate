@@ -20,6 +20,9 @@ module.exports = function(sequelize, DataTypes) {
     },
     image: {
       type: DataTypes.TEXT
+    },
+    crateId: {
+      type: DataTypes.INTEGER
     }
   })
 

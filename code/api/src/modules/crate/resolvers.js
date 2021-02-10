@@ -19,6 +19,18 @@ export async function getAll(parentValue, { orderBy }) {
   return await models.Crate.findAll({ order: [['id', orderBy]] })
 }
 
+// TODO: Get products by crate
+// export async function getByCrate(parentValue, {crateId}) {
+//   return await models.Product.findAll({
+//     where: {
+//       product.crateId: crateId
+//     },
+//     include: [
+//       {model: models.Product, as: 'product'},
+//     ]
+//   })
+// }
+
 // Create crate
 export async function create(parentValue, { name, description }, { auth }) {
   if(auth.user && auth.user.role === params.user.roles.admin) {
