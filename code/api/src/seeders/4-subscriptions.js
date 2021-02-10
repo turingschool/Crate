@@ -4,22 +4,22 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('subscriptions', [
       {
-        userId: 5,
-        crateId: 20,
+        userId: 2,
+        crateId: 2,
         createdAt: new Date(),
         updatedAt: new Date(),
         deliveryDate: new Date()
       },
       {
-        userId: 5,
-        crateId: 19,
+        userId: 1,
+        crateId: 2,
         createdAt: new Date(),
         updatedAt: new Date(),
         deliveryDate: new Date()
       },
       {
-        userId: 6,
-        crateId: 20,
+        userId: 2,
+        crateId: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
         deliveryDate: new Date()

@@ -15,7 +15,7 @@ module.exports = {
         image: '/images/stock/belt-female.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        crateId: 19
+        crateId: 1
       },
       {
         name: 'Belt for Men',
@@ -26,7 +26,7 @@ module.exports = {
         image: '/images/stock/belt-male.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        crateId: 20
+        crateId: 3
       },
       {
         name: 'Watch for Women',
@@ -37,7 +37,7 @@ module.exports = {
         image: '/images/stock/watch-female.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        crateId: 19
+        crateId: 1
       },
       {
         name: 'Watch for Men',
@@ -48,7 +48,7 @@ module.exports = {
         image: '/images/stock/watch-male.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        crateId: 19
+        crateId: 1
       },
       {
         name: 'T-Shirt for Women - Black',
@@ -59,7 +59,7 @@ module.exports = {
         image: '/images/stock/t-shirt-female-1.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        crateId: 20
+        crateId: 3
       },
       {
         name: 'T-Shirt for Women - Grey',
@@ -70,7 +70,7 @@ module.exports = {
         image: '/images/stock/t-shirt-female-2.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        crateId: 20
+        crateId: 3
       },
       {
         name: 'T-Shirt for Men - White',
@@ -81,7 +81,7 @@ module.exports = {
         image: '/images/stock/t-shirt-male-1.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        crateId: 19
+        crateId: 1
       },
       {
         name: 'T-Shirt for Men - Grey',
@@ -92,7 +92,7 @@ module.exports = {
         image: '/images/stock/t-shirt-male-2.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        crateId: 19
+        crateId: 1
       },
     ])
   },
