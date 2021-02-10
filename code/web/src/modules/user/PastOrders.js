@@ -1,6 +1,8 @@
 //Imports
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
 
 // UI Imports
 import { Grid, GridCell } from '../../ui/grid'
@@ -141,4 +143,10 @@ class PastOrders extends PureComponent {
     }
 }
 
-export default PastOrders
+function subscriptionsState(state) {
+  return {
+    subscriptions: state.subscriptionsByUser
+  }
+}
+
+export default connect(subscriptionsState)(PastOrders)
