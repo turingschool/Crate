@@ -1,13 +1,5 @@
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
-const CrateProductsType = new GraphQLObjectType({
-  name: 'crateProducts',
-  description: 'Crate Products Type',
-
-  fields: () => ({
-    productId: { type: GraphQLInt }
-  })
-})
 // Crate type
 const CrateType = new GraphQLObjectType({
   name: 'crate',
@@ -23,4 +15,13 @@ const CrateType = new GraphQLObjectType({
   })
 })
 
-export default CrateType
+const CrateProductsType = new GraphQLObjectType({
+  name: 'crateProducts',
+  description: 'Crate Products Type',
+
+  fields: () => ({
+    productId: { type: GraphQLInt }
+  })
+})
+
+export { CrateType, CrateProductsType }

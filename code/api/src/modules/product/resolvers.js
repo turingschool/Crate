@@ -43,10 +43,21 @@ export async function getRelated(parentValue, { productId }) {
 }
 
 // Get products by crateId
+// export async function getByCrate(parentValue, { crateId }) {
+//   return await models.sequelize.query(`SELECT * FROM products WHERE products."crateId" = ${crateId};`, {
+//     model: models.Crate,
+//     mapToModel: true
+//   })
+// }
+
 export async function getByCrate(parentValue, { crateId }) {
-  return await models.sequelize.query(`SELECT * FROM products WHERE products."crateId" = ${crateId};`, {
-    model: models.Product,
-    mapToModel: true
+  return await models.crateProduct.findAll({
+    where: { crateId: crateId },
+    include: [
+      { model: models.Product, as: 'products', include: [
+        { model: models.Crate, as: 'crate' },
+      ]}
+    ],
   })
 }
 
@@ -68,7 +79,7 @@ export async function create(parentValue, { name, slug, description, type, gende
 
 // Update product
 export async function update(parentValue, { id, name, slug, description, type, gender, image }, { auth }) {
-  if(auth.user && auth.user.role === params.user.roles.admin) {
+  // if(auth.user && auth.user.role === params.user.roles.admin) {
     return await models.Product.update(
       {
         name,
@@ -80,9 +91,8 @@ export async function update(parentValue, { id, name, slug, description, type, g
       },
       { where: { id } }
     )
-  } else {
-    throw new Error('Operation denied.')
-  }
+  // } else {
+    // throw new Error('Operation denied.')
 }
 
 // Delete product
