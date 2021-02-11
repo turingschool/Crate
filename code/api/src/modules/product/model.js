@@ -27,6 +27,6 @@ module.exports = function(sequelize, DataTypes) {
   })
 
   Product.associate = function(models) {
-    Product.belongsTo(models.Crate)
+    Product.belongsToMany(models.Crate)
   }
 }
