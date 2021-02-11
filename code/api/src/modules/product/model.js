@@ -21,6 +21,9 @@ module.exports = function(sequelize, DataTypes) {
     image: {
       type: DataTypes.TEXT
     },
+    orderStatus: {
+      type: DataTypes.STRING
+    },
     crateId: {
       type: DataTypes.INTEGER
     }
