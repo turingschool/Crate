@@ -44,7 +44,8 @@ export async function create(parentValue, { crateId }, { auth }) {
   if(auth.user && auth.user.id > 0) {
     return await models.Subscription.create({
       crateId,
-      userId: auth.user.id
+      userId: auth.user.id,
+      deliveryDate
     })
   } else {
     throw new Error('Please login to subscribe to this crate.')
@@ -73,5 +74,17 @@ export async function remove(parentValue, { id }, { auth }) {
     return await models.Subscription.destroy({where: {id, userId: auth.user.id}})
   } else {
     throw new Error('Access denied.')
+  }
+}
+
+// Update subscription
+export async function update(parentValue, { id, crateId, userId, deliveryDate }, { auth }) {
+  if(auth.user && auth.user.id > 0) {
+    return await models.Subscription.update({
+      crateId,
+      deliveryDate
+    })
+  } else {
+    throw new Error('Please login to update this subscription')
   }
 }

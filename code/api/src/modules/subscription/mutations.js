@@ -26,7 +26,6 @@ export const subscriptionDeliveryDate = {
       name: 'id',
       type: GraphQLInt
     },
-
     deliveryDate: {
       name: 'deliveryDate',
       type: GraphQLString
