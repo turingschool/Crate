@@ -24,6 +24,11 @@ export const user = {
 export const userLogin = {
   type: UserLoginType,
   args: {
+    id: {
+      name: 'id',
+      type: GraphQLString
+    },
+
     email: {
       name: 'email',
       type: GraphQLString
