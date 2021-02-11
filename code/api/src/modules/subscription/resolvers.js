@@ -76,15 +76,3 @@ export async function remove(parentValue, { id }, { auth }) {
     throw new Error('Access denied.')
   }
 }
-
-// Update subscription
-export async function update(parentValue, { id, crateId, userId, deliveryDate }, { auth }) {
-  if(auth.user && auth.user.id > 0) {
-    return await models.Subscription.update({
-      crateId,
-      deliveryDate
-    })
-  } else {
-    throw new Error('Please login to update this subscription')
-  }
-}
