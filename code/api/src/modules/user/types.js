@@ -1,5 +1,18 @@
 // Imports
-import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
+import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLInputObjectType } from 'graphql'
+
+const UpdateUserInputType = new GraphQLInputObjectType({
+  name: 'UpdateUserInput',
+  description: 'Input payload for updating user',
+  fields: () => ({
+    street1: { type: GraphQLString },
+    city: { type: GraphQLString },
+    state: { type: GraphQLString },
+    zip: { type: GraphQLString }
+  }),
+});
+
+
 const UserShippingAddressType = new GraphQLObjectType({
   name: 'shippingAddress',
   description: 'User Shipping Address Type',
@@ -54,4 +67,4 @@ const UserGenderType = new GraphQLObjectType({
   })
 })
 
-export { UserType, UserLoginType, UserGenderType }
+export { UserType, UserLoginType, UserGenderType, UserShippingAddressType, UpdateUserInputType }
