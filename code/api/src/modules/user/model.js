@@ -2,6 +2,9 @@
 // User
 module.exports = function(sequelize, DataTypes) {
   let User = sequelize.define('users', {
+    user: {
+      type: DataTypes.INTEGER
+    },
     name: {
       type: DataTypes.STRING
     },
