@@ -35,6 +35,11 @@ export const userUpdate = {
       id: 'id',
       type: GraphQLInt
     },
+    name: {
+      name: 'name',
+      type: GraphQLString
+    },
+
     email: {
       email: 'email',
       type: GraphQLString

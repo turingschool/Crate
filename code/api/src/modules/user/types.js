@@ -6,6 +6,7 @@ const UpdateUserInputType = new GraphQLInputObjectType({
   description: 'Input payload for updating user',
   fields: () => ({
     street1: { type: GraphQLString },
+    street2: { type: GraphQLString },
     city: { type: GraphQLString },
     state: { type: GraphQLString },
     zip: { type: GraphQLString }
