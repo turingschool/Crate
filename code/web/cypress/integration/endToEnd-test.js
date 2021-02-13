@@ -96,23 +96,23 @@ describe('Edit Profile', () => {
       .get('p').should('contain', 'Please enter all required fields before proceeding')
   })
 
-  it('should show what was filled into the form on the profile page', () => {
+  it.only('should show what was filled into the form on the profile page', () => {
     cy.contains('Profile').click()
     cy.contains('Edit Profile')
       .click()
       .get('[data-cy="name"]')
       .clear()
-      .type('Mario')
-      .should('have.value', 'Mario')
+      .type('Sophie')
+      .should('have.value', 'Sophie')
 
       .get('[data-cy="email"]')
       .clear()
-      .type('mario@crate.com')
-      .should('have.value', 'mario@crate.com')
+      .type('sophie@crate.com')
+      .should('have.value', 'sophie@crate.com')
 
       .get('[data-cy="bio"]')
-      .type('My name is Mario')
-      .should('have.value', 'My name is Mario')
+      .type('My name is Sophie')
+      .should('have.value', 'My name is Sophie')
 
       .get('[data-cy="street1"]')
       .type('123 Fun St')
@@ -123,19 +123,20 @@ describe('Edit Profile', () => {
       .should('have.value', 'PO Box 2')
 
       .get('[data-cy="city"]')
-      .type('Denver')
-      .should('have.value', 'Denver')
+      .type('Boulder')
+      .should('have.value', 'Boulder')
 
     cy.get('select').select('Alabama')
     cy.get('[data-cy="state"]')
     cy.should('have.value', 'AL')
 
       .get('[data-cy="zip"]')
-      .type('80504')
-      .should('have.value', '80504')
+      .type('80234')
+      .should('have.value', '80234')
       .get('button').click()
     cy.url().should('contain', 'user/profile')
     cy.contains('My shipping address')
+      .get('H4').contains('Sophie')
   })
 
   it('should have a button to view previous orders', () => {
