@@ -1,9 +1,9 @@
 // Imports
-import { GraphQLInt } from 'graphql'
+import { GraphQLInt, GraphQLString } from 'graphql'
 
 // App Imports
 import SubscriptionType from './types'
-import { create, remove } from './resolvers'
+import { create, update, remove } from './resolvers'
 
 // Subscription create
 export const subscriptionCreate = {
@@ -15,6 +15,24 @@ export const subscriptionCreate = {
     }
   },
   resolve: create
+}
+
+//update subscription
+
+export const subscriptionDeliveryDate = {
+  type: SubscriptionType,
+  args: {
+    id: {
+      name: 'id',
+      type: GraphQLInt
+    },
+
+    deliveryDate: {
+      name: 'deliveryDate',
+      type: GraphQLString
+    }
+  },
+  resolve: update
 }
 
 // Subscription remove
