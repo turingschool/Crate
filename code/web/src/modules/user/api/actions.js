@@ -125,5 +125,10 @@ export function editProfile(updatedProfile) {
       type: EDIT_PROFILE,
       updatedProfile
     })
+    return axios.post(routeApi, mutation({
+      operation: 'userUpdate',
+      variables: updatedProfile,
+      fields: ['user { name, email, image, shippingAddress, bio }', 'token']
+    }))
   }
-} 
+}
