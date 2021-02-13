@@ -28,14 +28,14 @@ describe('user queries', () => {
   it('can successfully query all user attributes', async (done) => {
     const response = await request(server)
       .post('/')
-      .send({query: '{users {name, email} }'})
+      .send({query: '{users {name email image bio shippingAddress {street1 street2 city state zip}} }'})
       .expect(200)
 
     expect(response.body.data.users[0]).toHaveProperty('name')
     expect(response.body.data.users[0]).toHaveProperty('email')
-    // expect(response.body.data.users[0]).toHaveProperty('image')
-    // expect(response.body.data.users[0]).toHaveProperty('bio')
-    // expect(response.body.data.users[0]).toHaveProperty('shippingAddress')
+    expect(response.body.data.users[0]).toHaveProperty('image')
+    expect(response.body.data.users[0]).toHaveProperty('bio')
+    expect(response.body.data.users[0]).toHaveProperty('shippingAddress')
     done();
   })
 })

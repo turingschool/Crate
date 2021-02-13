@@ -1,3 +1,5 @@
+// schema/index.js
+
 // Imports
 import { GraphQLSchema } from 'graphql'
 

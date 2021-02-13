@@ -1,3 +1,5 @@
+// schema/mutation.js
+
 // Imports
 import { GraphQLObjectType } from 'graphql'
 
@@ -6,6 +8,7 @@ import * as user from '../../modules/user/mutations'
 import * as product from '../../modules/product/mutations'
 import * as crate from '../../modules/crate/mutations'
 import * as subscription from '../../modules/subscription/mutations'
+import * as crateProducts from '../../modules/crateProducts/mutations'
 
 // Mutation
 const mutation = new GraphQLObjectType({
@@ -16,7 +19,8 @@ const mutation = new GraphQLObjectType({
     ...user,
     ...product,
     ...crate,
-    ...subscription
+    ...subscription,
+    ...crateProducts
   }
 })
 

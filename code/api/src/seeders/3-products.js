@@ -26,7 +26,7 @@ module.exports = {
         image: '/images/stock/belt-male.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        crateId: 3
+        crateId: 2
       },
       {
         name: 'Watch for Women',
@@ -59,7 +59,7 @@ module.exports = {
         image: '/images/stock/t-shirt-female-1.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        crateId: 3
+        crateId: 2
       },
       {
         name: 'T-Shirt for Women - Grey',
@@ -70,7 +70,7 @@ module.exports = {
         image: '/images/stock/t-shirt-female-2.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        crateId: 3
+        crateId: 2
       },
       {
         name: 'T-Shirt for Men - White',

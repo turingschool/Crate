@@ -21,12 +21,15 @@ module.exports = function(sequelize, DataTypes) {
     image: {
       type: DataTypes.TEXT
     },
+    orderStatus: {
+      type: DataTypes.STRING
+    },
     crateId: {
       type: DataTypes.INTEGER
     }
   })
 
   Product.associate = function(models) {
-    Product.belongsTo(models.Crate)
+    Product.belongsToMany(models.Crate, {through: models.CrateProducts})
   }
 }

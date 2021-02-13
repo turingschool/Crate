@@ -42,16 +42,17 @@ export async function getRelated(parentValue, { productId }) {
   })
 }
 
-// Get products by crateId
 export async function getByCrate(parentValue, { crateId }) {
-  return await models.Product.findAll({
+  const data =  await models.Product.findAll({
+
     where: {
       crateId: crateId
     },
-    include: [
-      {model: models.Crate, as: 'crateId'},
-    ]
+    through: [{ model: models.Crate, as: 'crate', through: { model: models.CrateProducts, as: 'crateProducts'
+    }}],
   })
+  console.log(data);
+  return data;
 }
 
 // Create product
@@ -72,7 +73,7 @@ export async function create(parentValue, { name, slug, description, type, gende
 
 // Update product
 export async function update(parentValue, { id, name, slug, description, type, gender, image }, { auth }) {
-  if(auth.user && auth.user.role === params.user.roles.admin) {
+  // if(auth.user && auth.user.role === params.user.roles.admin) {
     return await models.Product.update(
       {
         name,
@@ -84,9 +85,8 @@ export async function update(parentValue, { id, name, slug, description, type, g
       },
       { where: { id } }
     )
-  } else {
-    throw new Error('Operation denied.')
-  }
+  // } else {
+    // throw new Error('Operation denied.')
 }
 
 // Delete product
