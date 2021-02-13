@@ -156,6 +156,7 @@ class EditProfile extends Component {
                 placeholder="Full Name"
                 name="name"
                 autoComplete="off"
+                data-cy="name"
                 value={this.state.name}
                 onChange={this.updateInput}
               />
@@ -169,6 +170,7 @@ class EditProfile extends Component {
                 placeholder="Email Address"
                 name="email"
                 autoComplete="off"
+                data-cy="email"
                 value={this.state.email}
                 onChange={this.updateInput}
               />
@@ -181,6 +183,7 @@ class EditProfile extends Component {
                 placeholder="Describe Yourself"
                 name="bio"
                 autoComplete="off"
+                data-cy="bio"
                 value={this.state.bio}
                 onChange={this.updateInput}
               />
@@ -195,6 +198,7 @@ class EditProfile extends Component {
                 placeholder="Your Street"
                 name="street1"
                 autoComplete="off"
+                data-cy="street1"
                 value={this.state.street1}
                 onChange={this.updateInput}
               />
@@ -207,6 +211,7 @@ class EditProfile extends Component {
                 placeholder="Optional"
                 name="street2"
                 autoComplete="off"
+                data-cy="street2"
                 value={this.state.street2}
                 onChange={this.updateInput}
               />
@@ -220,6 +225,7 @@ class EditProfile extends Component {
                 placeholder="Your City"
                 name="city"
                 autoComplete="off"
+                data-cy="city"
                 value={this.state.city}
                 onChange={this.updateInput}
               />
@@ -231,6 +237,7 @@ class EditProfile extends Component {
                 fullWidth={true}
                 required="required"
                 name="state"
+                data-cy="state"
                 value={this.state.state}
                 onChange={this.updateInput}
               >
@@ -296,6 +303,7 @@ class EditProfile extends Component {
                 placeholder="Your Zip"
                 name="zip"
                 autoComplete="off"
+                data-cy="zip"
                 value={this.state.zip}
                 onChange={this.updateInput}
               />
@@ -309,7 +317,7 @@ class EditProfile extends Component {
           </form>
         </GridCell>
       </Grid>
-    );
+    )
   }
 }
 
