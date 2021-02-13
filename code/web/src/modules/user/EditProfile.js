@@ -91,7 +91,6 @@ class EditProfile extends Component {
       email,
       bio,
       shippingAddress,
-      role: 'USER',
     };
     this.props.editProfile(updatedProfile);
     this.props.history.push(userRoutes.profile.path);
