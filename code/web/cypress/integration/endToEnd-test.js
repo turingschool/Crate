@@ -137,6 +137,20 @@ describe('Edit Profile', () => {
     cy.url().should('contain', 'user/profile')
     cy.contains('My shipping address')
   })
+
+  it('should have a button to view previous orders', () => {
+    cy.get('header')
+      .contains('Subscriptions')
+      .click()
+      .get('H3').should('contain', 'My subscriptions')
+      .get('button').contains('Past Orders')
+  })
+
+  it('should be able to view past orders', () => {
+    cy.get('header')
+      .contains('Subscriptions')
+      .click()
+    cy.get('button:first').click()
+      .get('H3').contains('My Past Orders')
+  })
 })
-
-
