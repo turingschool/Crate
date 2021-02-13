@@ -58,6 +58,26 @@ export async function login(parentValue, { email, password }) {
   }
 }
 
+// Update user
+export async function update(parentValue, { id, name, email, image, bio, shippingAddress  }, { auth }) {
+  const user = await models.User.findOne({ where: { id } })
+  if(user && user.dataValues.role === params.user.roles.user) {
+    return models.User.update(
+      {
+        name,
+        email,
+        image,
+        bio,
+        shippingAddress
+      },
+      { where: { id } }
+    )
+  } else {
+    throw new Error('Could not find user')
+  }
+}
+
+
 // Get by ID
 export async function getById(parentValue, { id }) {
   return await models.User.findOne({ where: { id } })

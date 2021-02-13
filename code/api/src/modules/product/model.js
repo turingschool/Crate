@@ -20,6 +20,13 @@ module.exports = function(sequelize, DataTypes) {
     },
     image: {
       type: DataTypes.TEXT
+    },
+    crateId: {
+      type: DataTypes.INTEGER
     }
   })
+
+  Product.associate = function(models) {
+    Product.belongsTo(models.Crate)
+  }
 }

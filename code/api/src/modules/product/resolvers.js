@@ -42,6 +42,18 @@ export async function getRelated(parentValue, { productId }) {
   })
 }
 
+// Get products by crateId
+export async function getByCrate(parentValue, { crateId }) {
+  return await models.Product.findAll({
+    where: {
+      crateId: crateId
+    },
+    include: [
+      {model: models.Crate, as: 'crateId'},
+    ]
+  })
+}
+
 // Create product
 export async function create(parentValue, { name, slug, description, type, gender, image }, { auth }) {
   if(auth.user && auth.user.role === params.user.roles.admin) {
