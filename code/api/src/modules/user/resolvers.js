@@ -23,7 +23,7 @@ export async function create(parentValue, { name, email, password }) {
     })
   } else {
     // User exists
-    throw new Error(`The email ${ email } is already registered. Please try to login.`)
+    throw new Error(`The email ${email} is already registered. Please try to login.`)
   }
 }
 
@@ -32,7 +32,7 @@ export async function login(parentValue, { email, password }) {
 
   if (!user) {
     // User does not exists
-    throw new Error(`We do not have any user registered with ${ email } email address. Please signup.`)
+    throw new Error(`We do not have any user registered with ${email} email address. Please signup.`)
   } else {
     const userDetails = user.get()
 
@@ -59,21 +59,30 @@ export async function login(parentValue, { email, password }) {
 }
 
 // Update user
-export async function update(parentValue, { id, name, email, image, bio, shippingAddress  }, { auth }) {
-  const user = await models.User.findOne({ where: { id } })
-  if(user && user.dataValues.role === params.user.roles.user) {
-    return models.User.update(
-      {
-        name,
-        email,
-        image,
-        bio,
-        shippingAddress
-      },
-      { where: { id } }
-    )
+export async function update(parentValue, { name, email, image, bio, shippingAddress }, { auth }) {
+  if (auth.user && auth.user.id > 0) {
+    let user = auth.user
+    const registeredUser = await models.User.findOne({ where: { email } })
+
+    if (!registeredUser || registeredUser.id === user.id) {
+      let id = user.id
+
+      models.User.update(
+        {
+          name,
+          email,
+          image,
+          bio,
+          shippingAddress
+        },
+        { where: { id } }
+      )
+      return await models.User.findOne({ where: { id } })
+    } else {
+      throw new Error('Could not find user')
+    }
   } else {
-    throw new Error('Could not find user')
+    throw new Error('Operation Denied')
   }
 }
 

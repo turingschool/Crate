@@ -31,10 +31,6 @@ export const userSignup = {
 export const userUpdate = {
   type: UserType,
   args: {
-    id: {
-      id: 'id',
-      type: GraphQLInt
-    },
     name: {
       name: 'name',
       type: GraphQLString
