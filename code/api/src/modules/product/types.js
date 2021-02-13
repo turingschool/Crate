@@ -18,10 +18,8 @@ const ProductType = new GraphQLObjectType({
     createdAt: { type: GraphQLString },
     updatedAt: { type: GraphQLString },
     orderStatus: { type: GraphQLString },
-    crateId: { type: GraphQLList(CrateType) },
-    crates: {type: GraphQLList(CrateType)}
+    crateId: { type: CrateType }
 
-    // name crate instead of crateId when using GraphQL Object
   })
 })
 

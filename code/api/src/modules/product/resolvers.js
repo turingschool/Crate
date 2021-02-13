@@ -42,25 +42,14 @@ export async function getRelated(parentValue, { productId }) {
   })
 }
 
-// Get products by crateId
-
-// export async function getByCrate(parentValue, { crateId }) {
-//   return await models.sequelize.query(`SELECT * FROM products WHERE products."crateId" = ${crateId};`, {
-//     model: models.Crate,
-//     mapToModel: true
-//   })
-// }
-
 export async function getByCrate(parentValue, { crateId }) {
   const data =  await models.Product.findAll({
 
-    where: {crateId: crateId},
-    through: [
-      {model: models.CrateProducts, as: 'crateProducts', through: [
-            {model: models.Crate, as: 'crate', where: {crateId} }
-      ]}
-    ]
-
+    where: {
+      crateId: crateId
+    },
+    through: [{ model: models.Crate, as: 'crate', through: { model: models.CrateProducts, as: 'crateProducts'
+    }}],
   })
   console.log(data);
   return data;
