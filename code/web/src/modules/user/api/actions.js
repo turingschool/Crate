@@ -11,6 +11,7 @@ export const LOGIN_REQUEST = 'AUTH/LOGIN_REQUEST'
 export const LOGIN_RESPONSE = 'AUTH/LOGIN_RESPONSE'
 export const SET_USER = 'AUTH/SET_USER'
 export const LOGOUT = 'AUTH/LOGOUT'
+export const EDIT_PROFILE = 'AUTH/EDIT_PROFILE'
 
 // Actions
 
@@ -90,6 +91,7 @@ export function register(userDetails) {
 // Log out user and remove token from localStorage
 export function logout() {
   return dispatch => {
+    console.log(logoutUnsetUserLocalStorageAndCookie)
     logoutUnsetUserLocalStorageAndCookie()
 
     dispatch({
@@ -114,6 +116,20 @@ export function getGenders() {
     return axios.post(routeApi, query({
       operation: 'userGenders',
       fields: ['id', 'name']
+    }))
+  }
+}
+
+export function editProfile(updatedProfile) {
+  return dispatch => {
+    dispatch({
+      type: EDIT_PROFILE,
+      updatedProfile
+    })
+    return axios.post(routeApi, mutation({
+      operation: 'userUpdate',
+      variables: updatedProfile,
+      fields: ['user { name, email, image, shippingAddress, bio }', 'token']
     }))
   }
 }

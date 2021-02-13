@@ -3,7 +3,16 @@ import { GraphQLString, GraphQLInt, GraphQLList } from 'graphql'
 
 // App Imports
 import { ProductType, ProductTypesType } from './types'
-import { getAll, getBySlug, getById, getRelated, getTypes } from './resolvers'
+import { getAll, getBySlug, getById, getRelated, getTypes, getByCrate } from './resolvers'
+
+// Products by Crate
+export const productsByCrate = {
+  type: new GraphQLList(ProductType),
+  args: {
+    crateId: { type: GraphQLInt }
+  },
+  resolve: getByCrate
+}
 
 // Products All
 export const products = {

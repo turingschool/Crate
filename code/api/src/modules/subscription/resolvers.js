@@ -44,10 +44,27 @@ export async function create(parentValue, { crateId }, { auth }) {
   if(auth.user && auth.user.id > 0) {
     return await models.Subscription.create({
       crateId,
-      userId: auth.user.id
+      userId: auth.user.id,
+      deliveryDate
     })
   } else {
     throw new Error('Please login to subscribe to this crate.')
+  }
+}
+
+// Update deliveryDate
+
+export async function update(parentValue, { id, deliveryDate }) {
+  const subscription = await models.Subscription.findOne({ where: {id}})
+
+  if (subscription){
+    return await models.Subscription.update({
+      deliveryDate
+    },
+    { where: {id} }
+    )
+  } else {
+    throw new Error('Subscription doesn\'t exist!')
   }
 }
 
