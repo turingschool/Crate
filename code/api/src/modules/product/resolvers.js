@@ -43,6 +43,7 @@ export async function getRelated(parentValue, { productId }) {
 }
 
 // Get products by crateId
+
 // export async function getByCrate(parentValue, { crateId }) {
 //   return await models.sequelize.query(`SELECT * FROM products WHERE products."crateId" = ${crateId};`, {
 //     model: models.Crate,
@@ -51,14 +52,18 @@ export async function getRelated(parentValue, { productId }) {
 // }
 
 export async function getByCrate(parentValue, { crateId }) {
-  return await models.crateProduct.findAll({
-    where: { crateId: crateId },
-    include: [
-      { model: models.Product, as: 'products', include: [
-        { model: models.Crate, as: 'crate' },
+  const data =  await models.Product.findAll({
+
+    where: {crateId: crateId},
+    through: [
+      {model: models.CrateProducts, as: 'crateProducts', through: [
+            {model: models.Crate, as: 'crate', where: {crateId} }
       ]}
-    ],
+    ]
+
   })
+  console.log(data);
+  return data;
 }
 
 // Create product

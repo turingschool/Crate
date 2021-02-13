@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
 
   Crate.associate = function(models) {
     Crate.hasMany(models.Subscription)
-    Crate.hasMany(models.Product, { through: models.crateProduct })
+    Crate.belongsToMany(models.Product, { through: models.CrateProducts})
   }
 
   return Crate

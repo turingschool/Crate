@@ -1,5 +1,5 @@
 // Imports
-import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
+import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLList } from 'graphql'
 import CrateType from '../crate/types'
 
 // Product type
@@ -18,7 +18,9 @@ const ProductType = new GraphQLObjectType({
     createdAt: { type: GraphQLString },
     updatedAt: { type: GraphQLString },
     orderStatus: { type: GraphQLString },
-    crateId: { type: CrateType }
+    crateId: { type: GraphQLList(CrateType) },
+    crates: {type: GraphQLList(CrateType)}
+
     // name crate instead of crateId when using GraphQL Object
   })
 })

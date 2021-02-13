@@ -7,7 +7,7 @@ import { getAll, getBySlug, getById, getRelated, getTypes, getByCrate } from './
 
 // Products by Crate
 export const productsByCrate = {
-  type: new GraphQLList(ProductType),
+  type: ProductType,
   args: {
     crateId: { type: GraphQLInt }
   },
