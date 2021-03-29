@@ -1,3 +1,5 @@
+//checks authentication tokens for validity before allowing request to pass through and kicks back an error if not.
+
 // Imports
 import jwt from 'jsonwebtoken'
 import serverConfig from '../config/server.json'

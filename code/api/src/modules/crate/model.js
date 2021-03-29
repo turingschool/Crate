@@ -1,3 +1,5 @@
+//handles relationships with other tables
+
 'use strict'
 
 module.exports = function(sequelize, DataTypes) {

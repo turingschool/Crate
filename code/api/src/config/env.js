@@ -1,3 +1,5 @@
+//sets up the environment, stores port info here instead of hard coding it
+
 // Imports
 import dotenv from 'dotenv'
 
