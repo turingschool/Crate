@@ -1,3 +1,5 @@
+//each migration getting its own file. up section details what attributes will be added to the database as columns.
+// title of column: { datatype that title is: ORM.type}
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('users', {

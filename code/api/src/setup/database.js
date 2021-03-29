@@ -14,7 +14,7 @@ const connection = new Sequelize(databaseConfigEnv.database, databaseConfigEnv.u
   dialect: databaseConfigEnv.dialect,
   logging: false
 })
-
+//handles database connection and the responses you should get depending on successes
 // Test connection
 console.info('SETUP - Connecting database...')
 

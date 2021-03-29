@@ -10,6 +10,6 @@ export const APP_URL_API = process.env.APP_URL_API
 
 // Environment
 export const NODE_ENV = process.env.NODE_ENV
-
+// storing port information here rather than hardcoding it 
 // Port
 export const PORT = process.env.PORT || 3000

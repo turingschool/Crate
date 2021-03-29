@@ -1,6 +1,6 @@
 // App Imports
 import { PORT, NODE_ENV } from '../config/env'
-
+//handles server connection and the responses you should get depending on successes
 // Start server
 export default function (server) {
   console.info('SETUP - Starting server..')

@@ -1,3 +1,6 @@
+//contains the equivalent to method's for querying info about the crate objects
+
+
 // Imports
 import { GraphQLInt, GraphQLString, GraphQLList } from 'graphql'
 

@@ -1,3 +1,5 @@
+//seems to be like factorybot for seeding db with fake data to play around with
+
 'use strict';
 
 const bcrypt = require('bcrypt');

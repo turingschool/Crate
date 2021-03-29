@@ -1,3 +1,5 @@
+//contains the structure for what a crate object includes, regarding attributes etc.
+
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 

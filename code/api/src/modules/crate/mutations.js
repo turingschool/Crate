@@ -1,3 +1,5 @@
+//seems like how crate objects are handled when accessed through an api call
+
 // Imports
 import { GraphQLString, GraphQLInt } from 'graphql'
 

@@ -1,3 +1,5 @@
+//methods detailing how to find crates as well as handling issues when they do or do not exist. Contains the patch functionality as well.
+
 // App Imports
 import models from '../../setup/models'
 import params from '../../config/params'

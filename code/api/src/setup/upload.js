@@ -1,3 +1,5 @@
+//seems to manage how files are handled when attempting to upload. seems to let you know if it worked then returns true and the name of the file that was uploaded if so.
+
 // Imports
 import path from 'path'
 import multer from 'multer'
